@@ -13,12 +13,12 @@ import android.view.ViewGroup;
  */
 
 public abstract class BaseFragment extends Fragment {
-    public Context context;
+    public Context mContext;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        this.context = context;
+        this.mContext = context;
     }
 
     @Nullable

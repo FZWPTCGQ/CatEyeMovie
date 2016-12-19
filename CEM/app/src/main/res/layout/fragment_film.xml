@@ -1,13 +1,60 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context="com.example.qianggedemac.cem.film.FilmFragment">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              xmlns:tl="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              tools:context="com.example.qianggedemac.cem.film.FilmFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"/>
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:background="#f03"
+        >
 
-</FrameLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher"/>
+        </RelativeLayout>
+        <com.flyco.tablayout.SlidingTabLayout
+            android:layout_centerInParent="true"
+            android:id="@+id/tl_10"
+            android:layout_width="0dp"
+            android:layout_margin= "10dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3.5"
+            android:background="#f10737"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            tl:tl_indicator_color="#fff"
+            tl:tl_textSelectColor="#f03"
+            tl:tl_textUnselectColor="#fff"
+            tl:tl_indicator_corner_radius="5dp"
+            tl:tl_indicator_margin_left="2dp"
+            tl:tl_indicator_margin_right="2dp"
+            tl:tl_indicator_style="BLOCK"/>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+</LinearLayout>

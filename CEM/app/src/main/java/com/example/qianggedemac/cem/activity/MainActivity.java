@@ -21,12 +21,9 @@ import com.example.qianggedemac.cem.mine.MineFragment;
 public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener {
 
 
-    private FrameLayout mFrameLayout;
-    private RadioGroup mRadioGroup;
-    private RadioButton mRadioButtonFilm, mRadioButtonCinema, mRadioButtonFind, mRadioButtonMine;
 
-    //    private TextView mTextViewFilm,mTextViewCinema,mTextViewFind,mTextViewMine;
-    @Override
+    private RadioGroup mRadioGroup;
+    private RadioButton mRadioButtonFilm, mRadioButtonCinema, mRadioButtonFind, mRadioButtonMine;    @Override
     protected int setLayout() {
         return R.layout.activity_main;
     }
@@ -48,7 +45,6 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     }
 
     private void addViews() {
-        mFrameLayout = (FrameLayout) findViewById(R.id.main_fl);
         mRadioGroup = (RadioGroup) findViewById(R.id.main_rg);
         mRadioButtonFilm = (RadioButton) findViewById(R.id.main_film_rb);
         mRadioButtonCinema = (RadioButton) findViewById(R.id.main_cinema_rb);
