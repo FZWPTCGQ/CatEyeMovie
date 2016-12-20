@@ -17,4 +17,9 @@
     <dimen name="fifteen">15dp</dimen>
     <dimen name="fifty">50dp</dimen>
     <dimen name="oneHundred">100dp</dimen>
+    <dimen name="oneHundredFifty">150dp</dimen>
+    <dimen name="marginThree">3dp</dimen>
+    <dimen name="sizeTwenty">20sp</dimen>
+    <dimen name="two">2dp</dimen>
+    <dimen name="twelve">12dp</dimen>
 </resources>

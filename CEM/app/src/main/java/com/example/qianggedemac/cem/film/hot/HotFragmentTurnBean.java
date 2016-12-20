@@ -6,7 +6,7 @@ import java.util.List;
  * Created by qianggedemac on 16/12/20.
  */
 
-public class HotFragmentBean {
+public class HotFragmentTurnBean {
 
     private List<DataBean> data;
 

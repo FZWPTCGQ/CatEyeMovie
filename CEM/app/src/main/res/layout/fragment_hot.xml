@@ -4,7 +4,7 @@
              android:layout_height="match_parent"
               android:orientation="vertical"
              tools:context="com.example.qianggedemac.cem.film.hot.HotFragment">
-   <ListView
+   <com.handmark.pulltorefresh.library.PullToRefreshListView
        android:layout_width="match_parent"
        android:layout_height="match_parent"
        android:id="@+id/fragment_hot_lv"/>
