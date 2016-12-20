@@ -10,4 +10,8 @@
     <dimen name="sizeTen">10dp</dimen>
     <dimen name="twentyfive">25dp</dimen>
     <dimen name="marginEight">8dp</dimen>
+    <dimen name="marginTen">10dp</dimen>
+    <dimen name="five">5dp</dimen>
+    <dimen name="marginTwo">2dp</dimen>
+    <dimen name="marginFive">5dp</dimen>
 </resources>

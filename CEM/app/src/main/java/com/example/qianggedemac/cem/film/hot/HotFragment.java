@@ -8,21 +8,28 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.qianggedemac.cem.R;
+import com.example.qianggedemac.cem.baseclass.BaseFragment;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HotFragment extends Fragment {
-
-
+public class HotFragment extends BaseFragment {
 
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_hot, container, false);
+    protected int setLayout() {
+        return R.layout.fragment_hot;
+    }
+
+    @Override
+    protected void initView(View view) {
+
+    }
+
+    @Override
+    protected void initData() {
+
     }
 
 }
