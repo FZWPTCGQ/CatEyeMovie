@@ -46,7 +46,7 @@ public class FilmFragment extends BaseFragment {
 
 
         View decorView = getActivity().getWindow().getDecorView();
-        ViewPager vp = ViewFindUtils.find(decorView, R.id.vp);
+        ViewPager vp = ViewFindUtils.find(decorView, R.id.fragment_film_vp);
         mFragments.add(new FindFilmFragment());
         mFragments.add(new HotFragment());
         mFragments.add(new WaitFragment());
