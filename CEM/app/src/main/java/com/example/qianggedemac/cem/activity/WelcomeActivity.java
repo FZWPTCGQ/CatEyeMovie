@@ -5,8 +5,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.CountDownTimer;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -20,7 +18,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.qianggedemac.cem.R;
 import com.example.qianggedemac.cem.activity.welcomebean.WelcomeBean;
 import com.example.qianggedemac.cem.baseclass.BaseActivity;
-import com.example.qianggedemac.cem.tool.url.UrlTools;
+import com.example.qianggedemac.cem.tool.UrlTools;
 import com.google.gson.Gson;
 
 import java.io.IOException;
