@@ -17,6 +17,7 @@
     <dimen name="fifteen">15dp</dimen>
     <dimen name="fifty">50dp</dimen>
     <dimen name="oneHundred">100dp</dimen>
+<<<<<<< HEAD
     <dimen name="oneHundredFifty">150dp</dimen>
     <dimen name="marginThree">3dp</dimen>
     <dimen name="sizeTwenty">20sp</dimen>
@@ -24,4 +25,10 @@
     <dimen name="twelve">12dp</dimen>
     <dimen name="oneHundredTwenty">120dp</dimen>
     <item name="onePointFive" type="dimen" format="float">1.5dp</item>
+=======
+    <dimen name="eighty">80dp</dimen>
+    <dimen name="hundred_twenty">120dp</dimen>
+    <dimen name="padding_eight">8dp</dimen>
+    <dimen name="margin_three">3dp</dimen>
+>>>>>>> feature/平
 </resources>
