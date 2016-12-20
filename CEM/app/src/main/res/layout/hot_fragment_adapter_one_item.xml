@@ -128,7 +128,88 @@
         </RelativeLayout>
 
 
+
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/textView"
+        android:layout_marginLeft="@dimen/marginOneHundredTwenty"
+        android:layout_marginRight="@dimen/marginTen"
+        />
+    <LinearLayout
+        android:id="@+id/piaofang_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fifty"
+        android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/marginSeventy"
+        android:gravity="center_vertical"
+        >
+        <RelativeLayout
+            android:id="@+id/piaofang_rl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btnshapesmall">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/piaofang"
+                android:textColor="@color/btnSmall"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/marginTen">
+            <TextView
+                android:id="@+id/hot_fragment_adapter_one_item_piaofang_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4天破5亿,2016年度总票房即将超去年"/>
+        </RelativeLayout>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/textView"
+        android:layout_marginLeft="@dimen/marginOneHundredTwenty"
+        android:layout_marginRight="@dimen/marginTen"/>
+    <LinearLayout
+        android:layout_below="@id/tv2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fifty"
+        android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/marginSeventy"
+        android:gravity="center_vertical"
+        >
+        <RelativeLayout
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btnshapesmall">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/piaofang"
+                android:textColor="@color/btnSmall"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/marginTen">
+            <TextView
+                android:id="@+id/hot_fragment_adapter_one_item_title_zhuanti"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="最全资料库,你想知道的都在这里"/>
+        </RelativeLayout>
+    </LinearLayout>
 
 
 

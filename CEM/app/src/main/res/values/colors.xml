@@ -11,4 +11,6 @@
     <color name="guanzhong">#f9b85e</color>
     <color name="shu">#9a9a9a</color>
     <color name="btn">#f57062</color>
+    <color name="textView">#d9d0d2</color>
+    <color name="btnSmall">#ffcc80</color>
 </resources>
