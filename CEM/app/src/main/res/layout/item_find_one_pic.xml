@@ -7,14 +7,14 @@
 
     <ImageView
         android:id="@+id/find_one_iv"
-        android:layout_width="120dp"
-        android:layout_height="80dp"
+        android:layout_width="@dimen/oneHundredTwenty"
+        android:layout_height="@dimen/eighty"
         android:layout_centerVertical="true"
         android:src="@mipmap/icon"/>
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="100dp"
+        android:layout_height="@dimen/oneHundred"
         android:layout_centerVertical="true"
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@id/find_one_iv">
