@@ -22,4 +22,6 @@
     <dimen name="sizeTwenty">20sp</dimen>
     <dimen name="two">2dp</dimen>
     <dimen name="twelve">12dp</dimen>
+    <dimen name="oneHundredTwenty">120dp</dimen>
+    <item name="onePointFive" type="dimen" format="float">1.5dp</item>
 </resources>
