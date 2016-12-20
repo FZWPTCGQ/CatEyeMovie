@@ -40,24 +40,24 @@
                 android:id="@+id/item_find_three_iv1"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="@dimen/eighty"
-                android:paddingRight="@dimen/padding_eight"
+                android:layout_height="80dp"
+                android:paddingRight="8dp"
                 />
             <ImageView
                 android:id="@+id/item_find_three_iv2"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="@dimen/eighty"
-                android:layout_marginLeft="@dimen/margin_three"
-                android:layout_marginRight="@dimen/margin_three"
+                android:layout_height="80dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
 
                 />
             <ImageView
                 android:id="@+id/item_find_three_iv3"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="@dimen/eighty"
-                android:paddingLeft="@dimen/padding_eight"
+                android:layout_height="80dp"
+                android:paddingLeft="8dp"
                 />
         </LinearLayout>
 
