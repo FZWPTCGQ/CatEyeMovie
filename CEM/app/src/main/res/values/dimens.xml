@@ -17,4 +17,8 @@
     <dimen name="fifteen">15dp</dimen>
     <dimen name="fifty">50dp</dimen>
     <dimen name="oneHundred">100dp</dimen>
+    <dimen name="eighty">80dp</dimen>
+    <dimen name="hundred_twenty">120dp</dimen>
+    <dimen name="padding_eight">8dp</dimen>
+    <dimen name="margin_three">3dp</dimen>
 </resources>
