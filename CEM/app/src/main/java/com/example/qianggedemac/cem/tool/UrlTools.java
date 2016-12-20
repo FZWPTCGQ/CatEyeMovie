@@ -1,4 +1,4 @@
-package com.example.qianggedemac.cem.tool.url;
+package com.example.qianggedemac.cem.tool;
 
 /**
  * Created by qianggedemac on 16/12/19.
