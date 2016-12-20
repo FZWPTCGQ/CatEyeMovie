@@ -16,6 +16,8 @@ import com.android.volley.toolbox.Volley;
 import com.example.qianggedemac.cem.R;
 import com.example.qianggedemac.cem.baseclass.BaseFragment;
 import com.example.qianggedemac.cem.tool.UrlTools;
+import com.example.qianggedemac.cem.tool.oktools.NetCallBack;
+import com.example.qianggedemac.cem.tool.oktools.OkHttpManager;
 import com.google.gson.Gson;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -84,16 +86,12 @@ public class HotFragment extends BaseFragment {
     }
 
     private void parseBanner() {
-
-        RequestQueue requestQueue = Volley.newRequestQueue(mContext);
-        StringRequest stringRequest = new StringRequest(UrlTools.TURN_URL, new Response.Listener<String>() {
+        OkHttpManager.getInstance().get(UrlTools.TURN_URL, HotFragmentBean.class, new NetCallBack<HotFragmentBean>() {
             @Override
-            public void onResponse(String response) {
-                Gson gson = new Gson();
-                HotFragmentBean hotFragmentBean = gson.fromJson(response,HotFragmentBean.class);
+            public void onResponse(HotFragmentBean bean) {
                 ArrayList<String> image = new ArrayList<>();
-                for (int i = 0; i < hotFragmentBean.getData().size(); i++) {
-                    image.add(hotFragmentBean.getData().get(i).getImgUrl());
+                for (int i = 0; i < bean.getData().size(); i++) {
+                    image.add(bean.getData().get(i).getImgUrl());
                 }
 
                 mBanner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE);
@@ -113,15 +111,50 @@ public class HotFragment extends BaseFragment {
                 // banner设置方法全部调用完毕时最后调用
                 mBanner.start();
 
-
             }
-        }, new Response.ErrorListener() {
+
             @Override
-            public void onErrorResponse(VolleyError error) {
+            public void onError(Exception e) {
 
             }
         });
-        requestQueue.add(stringRequest);
+//        RequestQueue requestQueue = Volley.newRequestQueue(mContext);
+//        StringRequest stringRequest = new StringRequest(UrlTools.TURN_URL, new Response.Listener<String>() {
+//            @Override
+//            public void onResponse(String response) {
+//                Gson gson = new Gson();
+//                HotFragmentBean hotFragmentBean = gson.fromJson(response,HotFragmentBean.class);
+//                ArrayList<String> image = new ArrayList<>();
+//                for (int i = 0; i < hotFragmentBean.getData().size(); i++) {
+//                    image.add(hotFragmentBean.getData().get(i).getImgUrl());
+//                }
+//
+//                mBanner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE);
+//                // 设置图片加载器
+//                mBanner.setImageLoader(new GrideImageLoader());
+//                // 设置图片集合
+//                mBanner.setImages(image);
+//                // 设置banner动画效果
+//                mBanner.setBannerAnimation(Transformer.DepthPage);
+//                mBanner.setBannerAnimation(Transformer.DepthPage);
+//                // 设置自动轮播 默认为true
+//                mBanner.isAutoPlay(true);
+//                // 设置轮播时间
+//                mBanner.setDelayTime(2000);
+//                // 设置指示器位置 (当banner模式中有指示器时)
+//                mBanner.setIndicatorGravity(BannerConfig.CENTER);
+//                // banner设置方法全部调用完毕时最后调用
+//                mBanner.start();
+//
+//
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//
+//            }
+//        });
+//        requestQueue.add(stringRequest);
     }
 
 }
