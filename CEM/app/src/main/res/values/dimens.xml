@@ -16,4 +16,5 @@
     <dimen name="marginFive">5dp</dimen>
     <dimen name="fifteen">15dp</dimen>
     <dimen name="fifty">50dp</dimen>
+    <dimen name="oneHundred">100dp</dimen>
 </resources>
