@@ -54,6 +54,7 @@ public class FilmFragment extends BaseFragment {
         vp.setAdapter(mAdapter);
         SlidingTabLayout tabLayout_10 = ViewFindUtils.find(decorView, R.id.tl_10);
         tabLayout_10.setViewPager(vp);
+       
         
 
 
