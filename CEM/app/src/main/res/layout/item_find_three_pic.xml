@@ -3,8 +3,8 @@
               android:orientation="vertical"
               android:id="@+id/find_three_item_ll"
               android:layout_width="match_parent"
-              android:layout_height="150dp"
-              android:padding="5dp">
+              android:layout_height="@dimen/oneHundredFifty"
+              android:padding="@dimen/five">
     <TextView
     android:id="@+id/item_find_three_title_tv"
     android:text="111111"
@@ -38,26 +38,26 @@
             >
             <ImageView
                 android:id="@+id/item_find_three_iv1"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/zero"
                 android:layout_weight="1"
-                android:layout_height="80dp"
-                android:paddingRight="8dp"
+                android:layout_height="@dimen/eighty"
+                android:paddingRight="@dimen/marginEight"
                 />
             <ImageView
                 android:id="@+id/item_find_three_iv2"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/zero"
                 android:layout_weight="1"
-                android:layout_height="80dp"
-                android:layout_marginLeft="3dp"
-                android:layout_marginRight="3dp"
+                android:layout_height="@dimen/eighty"
+                android:layout_marginLeft="@dimen/marginThree"
+                android:layout_marginRight="@dimen/marginThree"
 
                 />
             <ImageView
                 android:id="@+id/item_find_three_iv3"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/zero"
                 android:layout_weight="1"
-                android:layout_height="80dp"
-                android:paddingLeft="8dp"
+                android:layout_height="@dimen/eighty"
+                android:paddingLeft="@dimen/marginEight"
                 />
         </LinearLayout>
 
@@ -114,21 +114,6 @@
                 android:drawableLeft="@mipmap/eyes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
-            <!--<LinearLayout-->
-                <!--android:layout_marginRight="10dp"-->
-                <!--android:orientation="horizontal"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content">-->
-                <!--<ImageView-->
-                    <!--android:src="@mipmap/eyes"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"/>-->
-                <!--<TextView-->
-                    <!--android:id="@+id/find_third_view_count_tv"-->
-                    <!--android:text="11111"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"/>-->
-            <!--</LinearLayout>-->
 
             <TextView
                 android:id="@+id/item_find_third_comment_count_tv"
@@ -137,20 +122,7 @@
                 android:gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
-            <!--<LinearLayout-->
-                <!--android:orientation="horizontal"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content">-->
-                <!--<ImageView-->
-                    <!--android:src="@mipmap/message"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"/>-->
-                <!--<TextView-->
-                    <!--android:id="@+id/find_third_comment_count_tv"-->
-                    <!--android:text="11111"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"/>-->
-            <!--</LinearLayout>-->
+
         </LinearLayout>
     </RelativeLayout>
 

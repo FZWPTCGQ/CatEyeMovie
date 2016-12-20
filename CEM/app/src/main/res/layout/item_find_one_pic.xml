@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/find_one_item_rv"
                 android:layout_width="match_parent"
-                android:layout_height="110dp"
-                android:padding="5dp">
+                android:layout_height="@dimen/oneHundredTen"
+                android:padding="@dimen/five">
 
     <ImageView
         android:id="@+id/find_one_iv"
@@ -16,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="@dimen/oneHundred"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="@dimen/marginTen"
         android:layout_toRightOf="@id/find_one_iv">
 
         <TextView
@@ -24,14 +24,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="@dimen/marginFifteen"
             android:text="title"/>
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="15dp">
+            android:layout_marginBottom="@dimen/marginFifteen">
 
             <TextView
                 android:id="@+id/find_two_nick_name_tv"
@@ -43,12 +43,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="10dp">
+                android:layout_marginRight="@dimen/marginTen">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginRight="@dimen/marginTen"
                     android:orientation="horizontal">
 
                     <!--<ImageView-->
