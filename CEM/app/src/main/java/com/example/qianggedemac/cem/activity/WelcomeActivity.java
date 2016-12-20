@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -50,10 +51,14 @@ public class WelcomeActivity extends BaseActivity implements View.OnClickListene
         StringRequest stringRequest = new StringRequest(UrlTools.WELCOME_URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                Log.d("WelcomeActivity", response);
                Gson gson = new Gson();
                 mWelcomeBean = gson.fromJson(response,WelcomeBean.class);
-                path = mWelcomeBean.getPosters().get(0).getPic();
-                new ImageTask().execute(path);
+                if (mWelcomeBean.getPosters() != null && mWelcomeBean.getPosters().size() > 0){
+                    path = mWelcomeBean.getPosters().get(0).getPic();
+                    new ImageTask().execute(path);
+                }
+
             }
         }, new Response.ErrorListener() {
             @Override

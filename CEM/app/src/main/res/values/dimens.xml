@@ -14,4 +14,6 @@
     <dimen name="five">5dp</dimen>
     <dimen name="marginTwo">2dp</dimen>
     <dimen name="marginFive">5dp</dimen>
+    <dimen name="fifteen">15dp</dimen>
+    <dimen name="fifty">50dp</dimen>
 </resources>
