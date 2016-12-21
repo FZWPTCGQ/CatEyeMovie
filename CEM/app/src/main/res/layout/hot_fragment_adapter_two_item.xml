@@ -38,7 +38,7 @@
                 android:id="@+id/hot_fragment_adapter_two_item_two_ll_nm_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="长城"
+
                 android:layout_gravity="center_vertical"
                 android:textSize="@dimen/sizeTwenty"
                 android:textStyle="bold"
@@ -48,7 +48,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_width="@dimen/twenty"
                 android:layout_height="@dimen/twenty"
-                android:src="@mipmap/wo"
+
                 android:layout_marginLeft="@dimen/marginFive"/>
 
 
@@ -65,7 +65,7 @@
                 android:id="@+id/hot_fragment_adapter_two_item_two_ll_guanzhong_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="观众 8.4"
+
                 android:textColor="@color/guanzhong"
                 android:textSize="@dimen/sizeTwenty"/>
             <TextView
@@ -78,7 +78,7 @@
                 android:id="@+id/hot_fragment_adapter_two_item_two_ll_zhuanye_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="专业 5.0"
+
                 android:textColor="@color/guanzhong"
                 android:textSize="@dimen/sizeTwenty"/>
         </LinearLayout>
@@ -94,7 +94,7 @@
                 android:id="@+id/hot_fragment_adapter_two_item_three_ll_scm_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="五军战饕餮,中国魂不灭"/>
+                />
         </LinearLayout>
         <LinearLayout
             android:id="@+id/four_ll"
@@ -108,7 +108,7 @@
                 android:id="@+id/hot_fragment_adapter_two_item_four_ll_showInfo_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="今天44家影院放映"/>
+               />
         </LinearLayout>
         <RelativeLayout
             android:layout_width="@dimen/fifty"
@@ -118,9 +118,10 @@
             android:background="@drawable/btnshape"
             android:layout_marginRight="@dimen/marginTen">
             <TextView
+                android:id="@+id/hot_fragment_adapter_two_item_goupiao_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="购票"
+
                 android:layout_centerInParent="true"
                 android:background="@null"
                 android:textColor="@color/btn"
