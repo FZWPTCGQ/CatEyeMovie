@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/find_one_item_rv"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/oneHundredTen"
+                android:layout_height="110dp"
                 android:padding="@dimen/five">
 
     <ImageView
