@@ -18,6 +18,14 @@ public class UrlTools {
     //热映界面刷新网址
     public static final String MOVIE_HOT_LIST = "http://m.maoyan.com/movie/list.json?type=hot&limit=12&offset=";
     public static final String MOVIE_HOT_CITY = "&ci=";
+    //待映网址
+    //电影 -> 待映 -> 预告片推荐
+    public static final String MOVIE_WAIT_RECOMMENDATION = "http://api.maoyan.com/mmdb/movie/lp/list.json";
+    //电影 -> 待映 -> 近期最受期待
+    public static final String MOVIE_WAIT_WISH = "http://api.maoyan.com/mmdb/movie/v1/list/wish/order/coming.json?offset=0&limit=50&ci=65";
+    //下面的lisView
+    public static final String MOVIE_WAIT_LISTVIEW = "http://api.maoyan.com/mmdb/movie/v2/list/rt/order/coming.json?ci=65&limit=12&token=&utm_campaign=AmovieBmovieCD-1";
+
 
 
 

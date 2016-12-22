@@ -212,7 +212,7 @@ public class HotFragmentAdapter extends BaseAdapter {
                             Toast.makeText(mContext, "购票被点击了", Toast.LENGTH_SHORT).show();
                         }
                     });
-                }else {
+                }else if (i > 10 && i < 23){
                     if (view == null){
                         view = LayoutInflater.from(mContext).inflate(R.layout.hot_fragment_adapter_two_item,viewGroup,false);
                         vhTwo = new VHTwo(view);
@@ -221,10 +221,10 @@ public class HotFragmentAdapter extends BaseAdapter {
                     }else{
                        vhTwo = (VHTwo) view.getTag();
                     }
-                    vhTwo.nmTvTwo.setText(mHotRefreshBean.getData().getMovies().get(i - 9).getNm());
-                    String imgUrl = mHotRefreshBean.getData().getMovies().get(i - 9).getImg();
+                    vhTwo.nmTvTwo.setText(mHotRefreshBean.getData().getMovies().get(i - 10).getNm());
+                    String imgUrl = mHotRefreshBean.getData().getMovies().get(i - 10).getImg();
                     Glide.with(mContext).load(imgUrl).into(vhTwo.imgIvTwo);
-                    String verIv = mHotRefreshBean.getData().getMovies().get(i - 9).getVer();
+                    String verIv = mHotRefreshBean.getData().getMovies().get(i - 10).getVer();
                     if (verIv.contains("3D")){
                         vhTwo.verIvTwo.setImageResource(R.mipmap.wo);
                     }else if (verIv.contains("3D") && verIv.contains("IMAX")){
@@ -232,17 +232,17 @@ public class HotFragmentAdapter extends BaseAdapter {
                     }else if (verIv.contains("2D") && verIv.contains("IMAX")){
                         vhTwo.verIvTwo.setImageResource(R.mipmap.main_movie_hot_2d_imax);
                     }
-                    int boxTv = mHotRefreshBean.getData().getMovies().get(i - 9).getPreSale();
+                    int boxTv = mHotRefreshBean.getData().getMovies().get(i - 10).getPreSale();
                     Log.d("啊啊啊啊", boxTv + "");
                     if (boxTv != 1){
-                        vhTwo.scTvTwo.setText("观众" + mHotRefreshBean.getData().getMovies().get(i - 9).getSc());
+                        vhTwo.scTvTwo.setText("观众" + mHotRefreshBean.getData().getMovies().get(i - 10).getSc());
 
                     }else{
-                        vhTwo.scTvTwo.setText(mHotRefreshBean.getData().getMovies().get(i - 9).getWish() + "人想看");
+                        vhTwo.scTvTwo.setText(mHotRefreshBean.getData().getMovies().get(i - 10).getWish() + "人想看");
                         //Log.d("啊啊啊啊", "mHotFragmentListViewBean.getData().getHot().get(i).getWish():" + mHotFragmentListViewBean.getData().getHot().get(i).getWish());
                     }
-                    vhTwo.scmTvTwo.setText(mHotRefreshBean.getData().getMovies().get(i - 9).getScm());
-                    vhTwo.showInFoTvTwo.setText(mHotRefreshBean.getData().getMovies().get(i - 9).getShowInfo());
+                    vhTwo.scmTvTwo.setText(mHotRefreshBean.getData().getMovies().get(i - 10).getScm());
+                    vhTwo.showInFoTvTwo.setText(mHotRefreshBean.getData().getMovies().get(i - 10).getShowInfo());
                     if (boxTv != 1){
 
                         vhTwo.gPTv.setText("购票");
@@ -267,6 +267,8 @@ public class HotFragmentAdapter extends BaseAdapter {
                         }
                     });
 
+                }else {
+                    return null;
                 }
 
                 break;
