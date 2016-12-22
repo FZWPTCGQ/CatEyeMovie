@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:id="@+id/find_seven_item_ll"
+              android:layout_width="match_parent"
+              android:layout_height="140dp"
+              android:padding="5dp">
+    <TextView
+        android:id="@+id/find_seven_title_tv"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="5dp"
+        android:layout_height="wrap_content"/>
+    <ImageView
+        android:id="@+id/find_seven_image_img"
+        android:scaleType="fitXY"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"/>
+    <TextView
+        android:id="@+id/find_seven_nick_name_tv"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+</LinearLayout>

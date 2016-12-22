@@ -1,13 +1,33 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context="com.example.qianggedemac.cem.find.FindFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"/>
 
-</FrameLayout>
+    <com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView
+        android:id="@+id/find_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/loading_img"
+            android:layout_gravity="center_horizontal"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/loading_before"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/loading_before"
+            android:layout_gravity="center_horizontal"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/loading_background"
+            android:layout_width="47dp"
+            android:layout_height="47dp"/>
+
+
+</RelativeLayout>

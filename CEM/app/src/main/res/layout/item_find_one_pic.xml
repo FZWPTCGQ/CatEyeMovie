@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/find_one_item_rv"
+                android:id="@+id/find_one_item_rl"
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
                 android:padding="@dimen/five">
@@ -34,7 +34,7 @@
             android:layout_marginBottom="@dimen/marginFifteen">
 
             <TextView
-                android:id="@+id/find_two_nick_name_tv"
+                android:id="@+id/find_one_nick_name_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="sub"/>
@@ -57,7 +57,7 @@
                     <!--android:src="@mipmap/eyes"/>-->
 
                     <TextView
-                        android:id="@+id/find_two_view_count_tv"
+                        android:id="@+id/find_one_view_count_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:drawableLeft="@mipmap/eyes"
@@ -76,7 +76,7 @@
                     <!--android:src="@mipmap/message"/>-->
 
                     <TextView
-                        android:id="@+id/find_two_comment_count_tv"
+                        android:id="@+id/find_one_comment_count_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:drawableLeft="@mipmap/message"
