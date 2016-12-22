@@ -11,4 +11,5 @@
     <string name="beijing">北京</string>
     <string name="piaofang">票房</string>
     <string name="zhuanti">专题</string>
+    <string name="yushou">预售</string>
 </resources>

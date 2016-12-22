@@ -8,6 +8,7 @@ import java.util.List;
 
 public class RecommedBean {
 
+
     private List<DataBean> data;
 
     public List<DataBean> getData() {

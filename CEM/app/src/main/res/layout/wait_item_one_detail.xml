@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_margin="@dimen/five"
+              android:layout_width="200dp"
+              android:layout_height="match_parent">
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/r8"
+    android:scaleType="fitXY"
+    android:id="@+id/wait_item_one_detail_img_iv"/>
+    <LinearLayout
+        android:layout_width="@dimen/oneHundredFifty"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/five">
+    <TextView
+        android:id="@+id/wait_item_one_detail_movieName_tv"
+        android:layout_width="wrap_content"
+        android:textSize="@dimen/sizeTen"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:textColor="#fff"
+        />
+    <TextView
+        android:id="@+id/wait_item_one_detail_originName_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:textSize="@dimen/sizeTen"
+        android:textColor="#fff"
+        android:ellipsize="end"
+        />
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/wait_item_one_detail_play_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/a44"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/five"/>
+
+</RelativeLayout>
