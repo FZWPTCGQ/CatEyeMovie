@@ -15,5 +15,10 @@ public class UrlTools {
     public static final String FIND_TODAY = "http://api.maoyan.com/sns/v5/feed.json?";
     //发现 -> 上面四个图标
     public static final String FIND_TOP = "http://api.maoyan.com/sns/v2/buttons.json?utm_term=7.5.0&utm_medium=android";
+    //热映界面刷新网址
+    public static final String MOVIE_HOT_LIST = "http://m.maoyan.com/movie/list.json?type=hot&limit=12&offset=";
+    public static final String MOVIE_HOT_CITY = "&ci=";
+
+
 
 }
