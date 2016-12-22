@@ -1,0 +1,82 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              xmlns:tl="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              tools:context="com.example.qianggedemac.cem.film.FilmFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/sixty"
+        android:orientation="horizontal"
+        android:background="@color/red"
+        >
+
+        <RelativeLayout
+            android:layout_width="@dimen/zero"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:gravity="center"
+            >
+            <TextView
+                android:id="@+id/fragment_film_address_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/beijing"
+                android:layout_centerVertical="true"
+                android:textColor="@color/white"
+                android:layout_marginRight="@dimen/marginFive"
+                />
+            <ImageView
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/fragment_film_address_tv"
+                android:id="@+id/fragment_film_pull_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/a7l"
+                />
+        </RelativeLayout>
+        <com.flyco.tablayout.SlidingTabLayout
+            android:layout_centerInParent="true"
+            android:id="@+id/tl_10"
+            android:layout_width="@dimen/zero"
+            android:layout_margin= "@dimen/marginTen"
+            android:layout_weight="3.5"
+            android:layout_height="match_parent"
+            android:background="@color/bigRed"
+            android:paddingLeft="@dimen/five"
+            android:paddingRight="@dimen/five"
+            tl:tl_indicator_color="@color/white"
+            tl:tl_textSelectColor="@color/red"
+            tl:tl_textUnselectColor="@color/white"
+            tl:tl_indicator_corner_radius="@dimen/five"
+            tl:tl_indicator_margin_left="@dimen/marginTwo"
+            tl:tl_indicator_margin_right="@dimen/marginTwo"
+            tl:tl_indicator_style="BLOCK"/>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+         <ImageView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:id="@+id/fragment_film_search_iv"
+             android:src="@mipmap/sousuo"
+             android:layout_centerInParent="true"
+             android:visibility="gone"/>
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/fragment_film_vp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero"
+        android:layout_weight="1"/>
+
+</LinearLayout>

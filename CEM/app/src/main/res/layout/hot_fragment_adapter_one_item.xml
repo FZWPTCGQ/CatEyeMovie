@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <RelativeLayout
+            android:id="@+id/hot_fragment_adapter_one_item_detail_rl"
+            android:layout_width="@dimen/oneHundred"
+            android:layout_margin="@dimen/fifteen"
+            android:layout_height="@dimen/oneHundredTwenty">
+            <ImageView
+                android:id="@+id/hot_fragment_adapter_one_item_detail_img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@mipmap/we"
+                android:scaleType="fitXY"
+                />
+            <ImageView
+                android:id="@+id/hot_fragment_adapter_one_item_detail_playIv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/a44"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
+        <LinearLayout
+            android:id="@+id/one_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="@dimen/marginThree"
+            android:layout_toRightOf="@id/hot_fragment_adapter_one_item_detail_rl"
+            android:layout_alignTop="@id/hot_fragment_adapter_one_item_detail_rl">
+            <TextView
+                android:id="@+id/one_ll_nm_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="center_vertical"
+                android:textSize="@dimen/sizeTwenty"
+                android:textStyle="bold"
+                />
+            <ImageView
+                android:id="@+id/one_ll_ver_iv"
+                android:layout_gravity="center_vertical"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+
+                android:layout_marginLeft="@dimen/marginFive"/>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="@dimen/marginThree"
+            android:layout_below="@id/one_ll"
+            android:id="@+id/two_ll"
+            android:orientation="horizontal"
+            android:layout_alignLeft="@id/one_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+          <TextView
+              android:id="@+id/two_ll_guanzhong_tv"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+
+              android:textColor="@color/guanzhong"
+              android:textSize="@dimen/sizeTwenty"/>
+         <TextView
+             android:layout_width="@dimen/two"
+             android:layout_height="@dimen/twelve"
+             android:background="@color/shu"
+             android:layout_marginLeft="@dimen/marginFive"
+             android:layout_marginRight="@dimen/marginFive"/>
+            <TextView
+                android:id="@+id/two_ll_zhuanye_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:textColor="@color/guanzhong"
+                android:textSize="@dimen/sizeTwenty"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="@dimen/marginThree"
+            android:id="@+id/three_ll"
+            android:layout_below="@id/two_ll"
+            android:layout_alignLeft="@id/two_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/three_ll_scm_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+               />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/four_ll"
+            android:layout_below="@id/three_ll"
+            android:layout_alignLeft="@id/three_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/marginThree">
+            <TextView
+                android:id="@+id/four_ll_showInfo_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="@dimen/fifty"
+            android:layout_height="@dimen/thirty"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/btnshape"
+            android:layout_marginRight="@dimen/marginTen">
+            <TextView
+                android:id="@+id/hot_fragment_adapter_one_item_gouPiao_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_centerInParent="true"
+                android:background="@null"
+                android:textColor="@color/btn"
+                />
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/textView"
+        android:layout_marginLeft="@dimen/marginOneHundredTwenty"
+        android:layout_marginRight="@dimen/marginTen"
+        />
+    <LinearLayout
+        android:id="@+id/piaofang_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fifty"
+        android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/marginSeventy"
+        android:gravity="center_vertical"
+        >
+        <RelativeLayout
+            android:id="@+id/piaofang_rl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btnshapesmall">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/piaofang"
+                android:textColor="@color/btnSmall"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/marginTen">
+            <TextView
+                android:id="@+id/hot_fragment_adapter_one_item_piaofang_title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/textView"
+        android:layout_marginLeft="@dimen/marginOneHundredTwenty"
+        android:layout_marginRight="@dimen/marginTen"/>
+    <LinearLayout
+        android:layout_below="@id/tv2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fifty"
+        android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/marginSeventy"
+        android:gravity="center_vertical"
+        >
+        <RelativeLayout
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btnshapesmall">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/zhuanti"
+                android:textColor="@color/btnSmall"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/marginTen">
+            <TextView
+                android:id="@+id/hot_fragment_adapter_one_item_title_zhuanti_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+
+    
+</LinearLayout>
