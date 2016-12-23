@@ -5,17 +5,17 @@
              tools:context="com.example.qianggedemac.cem.find.FindFragment">
 
     <!-- TODO: Update blank fragment layout -->
-
-    <com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView
-        android:id="@+id/find_rv"
+    <include layout="@layout/search_layout"
+        android:id="@+id/find_search_layout"/>
+    <FrameLayout
+        android:layout_below="@id/find_search_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
+        android:layout_height="wrap_content">
         <ImageView
             android:visibility="gone"
             android:id="@+id/loading_img"
             android:layout_gravity="center_horizontal"
-            android:layout_centerInParent="true"
+
             android:src="@mipmap/loading_before"
             android:layout_width="50dp"
             android:layout_height="50dp"/>
@@ -24,10 +24,17 @@
             android:visibility="gone"
             android:id="@+id/loading_before"
             android:layout_gravity="center_horizontal"
-            android:layout_centerInParent="true"
+
             android:src="@mipmap/loading_background"
-            android:layout_width="47dp"
-            android:layout_height="47dp"/>
+            android:layout_width="48dp"
+            android:layout_height="48dp"/>
+    </FrameLayout>
+    <com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView
+        android:layout_below="@id/find_search_layout"
+        android:id="@+id/find_pull_rv"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 
 </RelativeLayout>

@@ -2,88 +2,72 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/find_one_item_rl"
                 android:layout_width="match_parent"
-                android:layout_height="110dp"
-                android:padding="@dimen/five">
+                android:layout_height="130dp"
+    >
 
     <ImageView
         android:id="@+id/find_one_iv"
-        android:layout_width="@dimen/oneHundredTwenty"
-        android:layout_height="@dimen/eighty"
+        android:layout_width="125dp"
+        android:layout_height="110dp"
+        android:layout_marginLeft="8dp"
         android:layout_centerVertical="true"
         android:src="@mipmap/icon"/>
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_alignTop="@id/find_one_iv"
+    android:layout_toRightOf="@id/find_one_iv"
+    android:layout_marginLeft="3dp"
+    android:layout_height="110dp">
+    <TextView
+        android:id="@+id/find_one_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="title"
+        android:textColor="#000000"
+        />
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/oneHundred"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="@dimen/marginTen"
-        android:layout_toRightOf="@id/find_one_iv">
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/find_one_title_tv"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="3dp"
+        >
+
 
         <TextView
-            android:id="@+id/find_one_title_tv"
+            android:id="@+id/find_one_nick_name_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="sub"
+            android:textSize="12sp"/>
+
+
+        <TextView
+            android:id="@+id/find_one_comment_count_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="@dimen/marginFifteen"
-            android:text="title"/>
+            android:layout_alignParentRight="true"
 
-        <RelativeLayout
+            android:drawableLeft="@mipmap/message"
+            android:gravity="center_vertical"
+            android:text="评论 "
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/find_one_view_count_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="@dimen/marginFifteen">
+            android:layout_marginRight="3dp"
+            android:layout_marginLeft="8dp"
+            android:layout_toLeftOf="@id/find_one_comment_count_tv"
+            android:drawableLeft="@mipmap/eyes"
+            android:gravity="center_vertical"
+            android:text="观看人数"
+            android:textSize="12sp"/>
+        <!--</LinearLayout>-->
+        <!--</LinearLayout>-->
 
-            <TextView
-                android:id="@+id/find_one_nick_name_tv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="sub"/>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/marginTen">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/marginTen"
-                    android:orientation="horizontal">
-
-                    <!--<ImageView-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:src="@mipmap/eyes"/>-->
-
-                    <TextView
-                        android:id="@+id/find_one_view_count_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:drawableLeft="@mipmap/eyes"
-                        android:gravity="center_vertical"
-                        android:text="观看人数"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <!--<ImageView-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:src="@mipmap/message"/>-->
-
-                    <TextView
-                        android:id="@+id/find_one_comment_count_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:drawableLeft="@mipmap/message"
-                        android:gravity="center_vertical"
-                        android:text="评论 "/>
-                </LinearLayout>
-            </LinearLayout>
-        </RelativeLayout>
+    </RelativeLayout>
     </RelativeLayout>
 </RelativeLayout>

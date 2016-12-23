@@ -140,48 +140,48 @@ public class HotFragmentListViewBean {
 
             private String boxInfo;
             private String cat;
-            private int civilPubSt;
+//            private int civilPubSt;
             private String desc;
             private String dir;
-            private int dur;
-            private int effectShowNum;
+          //  private int dur;
+         //   private int effectShowNum;
             private String fra;
             private String frt;
             private boolean globalReleased;
             private boolean headLineShow;
-            private int id;
+          //  private int id;
             private String img;
-            private boolean late;
-            private int localPubSt;
-            private double mk;
+          //  private boolean late;
+         //   private int localPubSt;
+         //   private double mk;
             private String nm;
-            private int pn;
-            private int preSale;
+          //  private int pn;
+         //   private int preSale;
             private boolean preShow;
-            private int proScore;
-            private int proScoreNum;
-            private long pubDate;
-            private int pubShowNum;
-            private long recentShowDate;
-            private int recentShowNum;
+            private String proScore;
+         //   private int proScoreNum;
+          //  private long pubDate;
+         //   private int pubShowNum;
+         //   private long recentShowDate;
+         //   private int recentShowNum;
             private String rt;
-            private double sc;
+            private String sc;
             private String scm;
             private String showInfo;
-            private int showNum;
+         //   private int showNum;
             private String showTimeInfo;
-            private int showst;
-            private int snum;
+          //  private int showst;
+         //   private int snum;
             private String star;
-            private int totalShowNum;
+          //  private int totalShowNum;
             private String ver;
-            private int videoId;
+           // private int videoId;
             private String videoName;
             private String videourl;
-            private int vnum;
-            private int weight;
+        //    private int vnum;
+       //     private int weight;
             private int wish;
-            private int wishst;
+        //    private int wishst;
             private List<?> headLines;
             private List<HeadLinesVOBean> headLinesVO;
             private List<NewsHeadlinesBean> newsHeadlines;
@@ -202,13 +202,13 @@ public class HotFragmentListViewBean {
                 this.cat = cat;
             }
 
-            public int getCivilPubSt() {
-                return civilPubSt;
-            }
-
-            public void setCivilPubSt(int civilPubSt) {
-                this.civilPubSt = civilPubSt;
-            }
+//            public int getCivilPubSt() {
+//                return civilPubSt;
+//            }
+//
+//            public void setCivilPubSt(int civilPubSt) {
+//                this.civilPubSt = civilPubSt;
+//            }
 
             public String getDesc() {
                 return desc;
@@ -226,21 +226,21 @@ public class HotFragmentListViewBean {
                 this.dir = dir;
             }
 
-            public int getDur() {
-                return dur;
-            }
-
-            public void setDur(int dur) {
-                this.dur = dur;
-            }
-
-            public int getEffectShowNum() {
-                return effectShowNum;
-            }
-
-            public void setEffectShowNum(int effectShowNum) {
-                this.effectShowNum = effectShowNum;
-            }
+//            public int getDur() {
+//                return dur;
+//            }
+//
+//            public void setDur(int dur) {
+//                this.dur = dur;
+//            }
+//
+//            public int getEffectShowNum() {
+//                return effectShowNum;
+//            }
+//
+//            public void setEffectShowNum(int effectShowNum) {
+//                this.effectShowNum = effectShowNum;
+//            }
 
             public String getFra() {
                 return fra;
@@ -274,13 +274,13 @@ public class HotFragmentListViewBean {
                 this.headLineShow = headLineShow;
             }
 
-            public int getId() {
-                return id;
-            }
-
-            public void setId(int id) {
-                this.id = id;
-            }
+//            public int getId() {
+//                return id;
+//            }
+//
+//            public void setId(int id) {
+//                this.id = id;
+//            }
 
             public String getImg() {
                 return img;
@@ -290,29 +290,29 @@ public class HotFragmentListViewBean {
                 this.img = img;
             }
 
-            public boolean isLate() {
-                return late;
-            }
-
-            public void setLate(boolean late) {
-                this.late = late;
-            }
-
-            public int getLocalPubSt() {
-                return localPubSt;
-            }
-
-            public void setLocalPubSt(int localPubSt) {
-                this.localPubSt = localPubSt;
-            }
-
-            public double getMk() {
-                return mk;
-            }
-
-            public void setMk(double mk) {
-                this.mk = mk;
-            }
+//            public boolean isLate() {
+//                return late;
+//            }
+//
+//            public void setLate(boolean late) {
+//                this.late = late;
+//            }
+//
+//            public int getLocalPubSt() {
+//                return localPubSt;
+//            }
+//
+//            public void setLocalPubSt(int localPubSt) {
+//                this.localPubSt = localPubSt;
+//            }
+//
+//            public double getMk() {
+//                return mk;
+//            }
+//
+//            public void setMk(double mk) {
+//                this.mk = mk;
+//            }
 
             public String getNm() {
                 return nm;
@@ -322,21 +322,21 @@ public class HotFragmentListViewBean {
                 this.nm = nm;
             }
 
-            public int getPn() {
-                return pn;
-            }
-
-            public void setPn(int pn) {
-                this.pn = pn;
-            }
-
-            public int getPreSale() {
-                return preSale;
-            }
-
-            public void setPreSale(int preSale) {
-                this.preSale = preSale;
-            }
+//            public int getPn() {
+//                return pn;
+//            }
+//
+//            public void setPn(int pn) {
+//                this.pn = pn;
+//            }
+//
+//            public int getPreSale() {
+//                return preSale;
+//            }
+//
+//            public void setPreSale(int preSale) {
+//                this.preSale = preSale;
+//            }
 
             public boolean isPreShow() {
                 return preShow;
@@ -346,53 +346,53 @@ public class HotFragmentListViewBean {
                 this.preShow = preShow;
             }
 
-            public int getProScore() {
+            public String getProScore() {
                 return proScore;
             }
 
-            public void setProScore(int proScore) {
+            public void setProScore(String proScore) {
                 this.proScore = proScore;
             }
 
-            public int getProScoreNum() {
-                return proScoreNum;
-            }
-
-            public void setProScoreNum(int proScoreNum) {
-                this.proScoreNum = proScoreNum;
-            }
-
-            public long getPubDate() {
-                return pubDate;
-            }
-
-            public void setPubDate(long pubDate) {
-                this.pubDate = pubDate;
-            }
-
-            public int getPubShowNum() {
-                return pubShowNum;
-            }
-
-            public void setPubShowNum(int pubShowNum) {
-                this.pubShowNum = pubShowNum;
-            }
-
-            public long getRecentShowDate() {
-                return recentShowDate;
-            }
-
-            public void setRecentShowDate(long recentShowDate) {
-                this.recentShowDate = recentShowDate;
-            }
-
-            public int getRecentShowNum() {
-                return recentShowNum;
-            }
-
-            public void setRecentShowNum(int recentShowNum) {
-                this.recentShowNum = recentShowNum;
-            }
+//            public int getProScoreNum() {
+//                return proScoreNum;
+//            }
+//
+//            public void setProScoreNum(int proScoreNum) {
+//                this.proScoreNum = proScoreNum;
+//            }
+//
+//            public long getPubDate() {
+//                return pubDate;
+//            }
+//
+//            public void setPubDate(long pubDate) {
+//                this.pubDate = pubDate;
+//            }
+//
+//            public int getPubShowNum() {
+//                return pubShowNum;
+//            }
+//
+//            public void setPubShowNum(int pubShowNum) {
+//                this.pubShowNum = pubShowNum;
+//            }
+//
+//            public long getRecentShowDate() {
+//                return recentShowDate;
+//            }
+//
+//            public void setRecentShowDate(long recentShowDate) {
+//                this.recentShowDate = recentShowDate;
+//            }
+//
+//            public int getRecentShowNum() {
+//                return recentShowNum;
+//            }
+//
+//            public void setRecentShowNum(int recentShowNum) {
+//                this.recentShowNum = recentShowNum;
+//            }
 
             public String getRt() {
                 return rt;
@@ -402,11 +402,11 @@ public class HotFragmentListViewBean {
                 this.rt = rt;
             }
 
-            public double getSc() {
+            public String getSc() {
                 return sc;
             }
 
-            public void setSc(double sc) {
+            public void setSc(String sc) {
                 this.sc = sc;
             }
 
@@ -426,13 +426,13 @@ public class HotFragmentListViewBean {
                 this.showInfo = showInfo;
             }
 
-            public int getShowNum() {
-                return showNum;
-            }
-
-            public void setShowNum(int showNum) {
-                this.showNum = showNum;
-            }
+//            public int getShowNum() {
+//                return showNum;
+//            }
+//
+//            public void setShowNum(int showNum) {
+//                this.showNum = showNum;
+//            }
 
             public String getShowTimeInfo() {
                 return showTimeInfo;
@@ -442,21 +442,21 @@ public class HotFragmentListViewBean {
                 this.showTimeInfo = showTimeInfo;
             }
 
-            public int getShowst() {
-                return showst;
-            }
-
-            public void setShowst(int showst) {
-                this.showst = showst;
-            }
-
-            public int getSnum() {
-                return snum;
-            }
-
-            public void setSnum(int snum) {
-                this.snum = snum;
-            }
+//            public int getShowst() {
+//                return showst;
+//            }
+//
+//            public void setShowst(int showst) {
+//                this.showst = showst;
+//            }
+//
+//            public int getSnum() {
+//                return snum;
+//            }
+//
+//            public void setSnum(int snum) {
+//                this.snum = snum;
+//            }
 
             public String getStar() {
                 return star;
@@ -466,13 +466,13 @@ public class HotFragmentListViewBean {
                 this.star = star;
             }
 
-            public int getTotalShowNum() {
-                return totalShowNum;
-            }
-
-            public void setTotalShowNum(int totalShowNum) {
-                this.totalShowNum = totalShowNum;
-            }
+//            public int getTotalShowNum() {
+//                return totalShowNum;
+//            }
+//
+//            public void setTotalShowNum(int totalShowNum) {
+//                this.totalShowNum = totalShowNum;
+//            }
 
             public String getVer() {
                 return ver;
@@ -482,13 +482,13 @@ public class HotFragmentListViewBean {
                 this.ver = ver;
             }
 
-            public int getVideoId() {
-                return videoId;
-            }
-
-            public void setVideoId(int videoId) {
-                this.videoId = videoId;
-            }
+//            public int getVideoId() {
+//                return videoId;
+//            }
+//
+//            public void setVideoId(int videoId) {
+//                this.videoId = videoId;
+//            }
 
             public String getVideoName() {
                 return videoName;
@@ -506,22 +506,22 @@ public class HotFragmentListViewBean {
                 this.videourl = videourl;
             }
 
-            public int getVnum() {
-                return vnum;
-            }
-
-            public void setVnum(int vnum) {
-                this.vnum = vnum;
-            }
-
-            public int getWeight() {
-                return weight;
-            }
-
-            public void setWeight(int weight) {
-                this.weight = weight;
-            }
-
+//            public int getVnum() {
+//                return vnum;
+//            }
+//
+//            public void setVnum(int vnum) {
+//                this.vnum = vnum;
+//            }
+//
+//            public int getWeight() {
+//                return weight;
+//            }
+//
+//            public void setWeight(int weight) {
+//                this.weight = weight;
+//            }
+//
             public int getWish() {
                 return wish;
             }
@@ -529,14 +529,14 @@ public class HotFragmentListViewBean {
             public void setWish(int wish) {
                 this.wish = wish;
             }
-
-            public int getWishst() {
-                return wishst;
-            }
-
-            public void setWishst(int wishst) {
-                this.wishst = wishst;
-            }
+//
+//            public int getWishst() {
+//                return wishst;
+//            }
+//
+//            public void setWishst(int wishst) {
+//                this.wishst = wishst;
+//            }
 
             public List<?> getHeadLines() {
                 return headLines;
