@@ -17,6 +17,7 @@ import com.example.qianggedemac.cem.cinema.CinemaFragment;
 import com.example.qianggedemac.cem.film.FilmFragment;
 import com.example.qianggedemac.cem.find.FindFragment;
 import com.example.qianggedemac.cem.mine.MineFragment;
+import com.example.qianggedemac.cem.tool.myapp.MyApp;
 
 public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener {
 

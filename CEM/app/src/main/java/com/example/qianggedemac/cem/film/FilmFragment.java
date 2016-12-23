@@ -1,18 +1,15 @@
 package com.example.qianggedemac.cem.film;
 
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.qianggedemac.cem.R;
 import com.example.qianggedemac.cem.baseclass.BaseFragment;
-import com.example.qianggedemac.cem.film.findfilm.FindFilmFragment;
+import com.example.qianggedemac.cem.film.findfilm.MoiveFindFragment;
 import com.example.qianggedemac.cem.film.hot.HotFragment;
 import com.example.qianggedemac.cem.film.wait.WaitFragment;
 import com.flyco.tablayout.SlidingTabLayout;
@@ -49,7 +46,7 @@ public class FilmFragment extends BaseFragment {
         ViewPager vp = ViewFindUtils.find(decorView, R.id.fragment_film_vp);
         mFragments.add(new HotFragment());
         mFragments.add(new WaitFragment());
-        mFragments.add(new FindFilmFragment());
+        mFragments.add(new MoiveFindFragment());
         mAdapter = new MyPagerAdapter(getChildFragmentManager(),mFragments);
         vp.setAdapter(mAdapter);
         SlidingTabLayout tabLayout_10 = ViewFindUtils.find(decorView, R.id.tl_10);

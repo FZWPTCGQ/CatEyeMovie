@@ -45,6 +45,14 @@ public class WaitFragment extends BaseFragment {
     @Override
     protected void initData() {
      parseInternet();
+        /**
+         * 刷新
+         */
+      refreshMethod();
+    }
+
+    private void refreshMethod() {
+
     }
 
     private void parseInternet() {

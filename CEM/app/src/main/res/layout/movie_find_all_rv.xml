@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:id="@+id/ll_test"
+
+        android:orientation="horizontal"
+        android:layout_width="@dimen/oneHundredTwenty"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/movie_find_all_festival_name"
+            android:layout_gravity="center"
+            android:text="金球奖"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:layout_marginLeft="@dimen/marginFive"
+           android:src="@mipmap/a_o"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rv_test"
+        android:layout_below="@id/ll_test"
+        android:layout_width="@dimen/oneHundredTwenty"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_centerHorizontal="true"
+            android:id="@+id/movie_find_all_date"
+
+            android:layout_centerVertical="true"
+            android:text="08-31"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:paddingLeft="@dimen/marginEight"
+        android:paddingRight="@dimen/marginEight"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
+        android:id="@+id/rv_test2"
+        android:layout_below="@id/rv_test"
+        android:layout_width="@dimen/oneHundredTwenty"
+        android:layout_height="@dimen/oneHundredFifty">
+
+
+        <ImageView
+            android:src="@mipmap/icon"
+            android:scaleType="fitXY"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/movie_find_all_img"/>
+        <TextView
+            android:id="@+id/movie_find_all_prize_name"
+            android:text="新浪潮奖"
+            android:textSize="@dimen/marginTen"
+            android:textColor="#fff"
+            android:background="#7498fa"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/movie_find_all_movie_name"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="5dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/rv_test2"
+        android:text="离开的女人"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+</RelativeLayout>

@@ -64,8 +64,8 @@
              android:layout_height="wrap_content"
              android:id="@+id/fragment_film_search_iv"
              android:src="@mipmap/sousuo"
-             android:layout_centerInParent="true"
-             android:visibility="gone"/>
+             android:layout_centerInParent="true"/>
+
         </RelativeLayout>
 
 

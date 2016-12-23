@@ -79,23 +79,6 @@ public class HotFragment extends BaseFragment {
             @Override
             public void onPullDownToRefresh(PullToRefreshBase<ListView> pullToRefreshBase) {
                 Log.d("sdahfls", "offset:" + offset);
-//              getMovieHotList("65", offset, new NetCallBack<HotRefreshBean>() {
-//                  @Override
-//                  public void onResponse(HotRefreshBean bean) {
-//                      mHotRefreshAdapter.clean();
-//                      //mHotFragmentAdapter.setHotFragmentListViewBean(bean);
-//                      mHotRefreshAdapter.setHotRefreshBean(bean);
-//                      mListView.setAdapter(mHotRefreshAdapter);
-//
-//                      mHotRefreshAdapter.notifyDataSetChanged();
-//                      mListView.onRefreshComplete();
-//                  }
-//
-//                  @Override
-//                  public void onError(Exception e) {
-//
-//                  }
-//              });
 
 
             }

@@ -60,6 +60,7 @@ public class WaitFragmentAdapter extends BaseAdapter implements StickyListHeader
     }
     public void setNearBean(NearBean nearBean) {
         mNearBean = nearBean;
+        Log.d("数据", "mNearBean.getData().getComing().size():" + mNearBean.getData().getComing().size());
         notifyDataSetChanged();
     }
 
@@ -75,8 +76,27 @@ public class WaitFragmentAdapter extends BaseAdapter implements StickyListHeader
 
     @Override
     public long getHeaderId(int position) {
-        return position;
-       // return Long.parseLong(mNearBean.getData().getComing().get(position).getComingTitle() + "");
+
+
+
+        if (position == 0){
+            return 1000;
+        }else if (position ==1){
+            return 999;
+        }else {
+            String date = mNearBean.getData().getComing().get(position-2).getComingTitle();
+            Log.d("发撒上的", "date.length():" + date.length());
+            int a = date.indexOf(" ");
+            Log.d("发撒上的", "a:" + a);
+            String day = date.replace(" ","");
+            String dayMonth = day.replace("月","");
+            String dayDay = dayMonth.replace("日","");
+            String dayWeek = dayDay.substring(0,dayDay.length() - 2);
+            Log.d("日期", "天"+dayWeek);
+            Long l = Long.parseLong(dayWeek);
+            Log.d("日期", "l:" + l);
+            return Long.parseLong(dayWeek);
+        }
     }
 
     @Override
@@ -182,11 +202,11 @@ public class WaitFragmentAdapter extends BaseAdapter implements StickyListHeader
                 }else{
                     mBodyHolderNear = (BodyHolderNear) view.getTag();
                 }
-                mBodyHolderNear.nmTvNear.setText(mNearBean.getData().getComing().get(i).getNm());
-                mBodyHolderNear.wishTvNear.setText(mNearBean.getData().getComing().get(i).getWish() + "人想看");
-                mBodyHolderNear.scmTvNear.setText(mNearBean.getData().getComing().get(i).getScm());
-                mBodyHolderNear.starTvNear.setText(mNearBean.getData().getComing().get(i).getStar());
-                String url = mNearBean.getData().getComing().get(i).getImg();
+                mBodyHolderNear.nmTvNear.setText(mNearBean.getData().getComing().get(i-2).getNm());
+                mBodyHolderNear.wishTvNear.setText(mNearBean.getData().getComing().get(i-2).getWish() + "人想看");
+                mBodyHolderNear.scmTvNear.setText(mNearBean.getData().getComing().get(i-2).getScm());
+                mBodyHolderNear.starTvNear.setText(mNearBean.getData().getComing().get(i-2).getStar());
+                String url = mNearBean.getData().getComing().get(i-2).getImg();
                 String newUrl = url.replace("/w.h/","/165.220/");
                 Glide.with(mContext).load(newUrl).into(mBodyHolderNear.imgIvNear);
                 break;
@@ -231,7 +251,7 @@ public class WaitFragmentAdapter extends BaseAdapter implements StickyListHeader
         }else if (position == 1){
             headerViewHolder.mTextViewHeader.setText("近期最受期待");
         }else{
-           headerViewHolder.mTextViewHeader.setText(mLists.get(position));
+           headerViewHolder.mTextViewHeader.setText(mNearBean.getData().getComing().get(position-2).getComingTitle());
         }
 
         return convertView;
