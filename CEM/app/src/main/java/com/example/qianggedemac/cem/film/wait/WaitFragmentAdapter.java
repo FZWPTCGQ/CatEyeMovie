@@ -75,7 +75,8 @@ public class WaitFragmentAdapter extends BaseAdapter implements StickyListHeader
 
     @Override
     public long getHeaderId(int position) {
-        return Long.parseLong(mNearBean.getData().getComing().get(position).getComingTitle() + "");
+        return position;
+       // return Long.parseLong(mNearBean.getData().getComing().get(position).getComingTitle() + "");
     }
 
     @Override

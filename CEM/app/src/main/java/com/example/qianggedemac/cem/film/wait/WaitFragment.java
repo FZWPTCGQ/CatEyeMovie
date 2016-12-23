@@ -72,6 +72,8 @@ public class WaitFragment extends BaseFragment {
 
             }
         });
+        View view = LayoutInflater.from(mContext).inflate(R.layout.search_layout,null);
+        mStickyListHeadersListView.addHeaderView(view);
     }
 
 }
