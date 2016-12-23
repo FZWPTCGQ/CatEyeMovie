@@ -27,6 +27,8 @@
     <dimen name="marginFifteen">15dp</dimen>
     <dimen name="marginSeventy">70dp</dimen>
     <dimen name="marginOneHundredTwenty">120dp</dimen>
+    <dimen name="oneHundredThirty">130dp</dimen>
+    <dimen name="twoHundred">200dp</dimen>
 
 
 </resources>
