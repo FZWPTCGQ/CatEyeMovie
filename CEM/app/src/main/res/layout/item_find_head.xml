@@ -3,8 +3,39 @@
               android:orientation="vertical"
               android:id="@+id/find_header_item_ll"
               android:layout_width="match_parent"
-              android:layout_height="120dp">
+              android:layout_height="170dp">
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fifty"
+        android:background="@color/red"
+       >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/marginTen"
+            android:background="@drawable/editshape">
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_centerInParent="true">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/search"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="找影视剧、影人、影院"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -98,11 +129,20 @@
                     android:layout_height="wrap_content"/>
             </RelativeLayout>
         </LinearLayout>
-        <TextView
+        <LinearLayout
             android:layout_marginTop="6dp"
-            android:text="今天"
-            android:layout_marginLeft="10dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:background="#e7e7e7"
+            android:orientation="vertical">
+            <TextView
+                android:text="今天"
+                android:layout_marginLeft="12dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>
