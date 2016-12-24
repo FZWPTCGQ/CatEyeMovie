@@ -76,6 +76,7 @@ public class WaitFragmentAdapter extends BaseAdapter implements StickyListHeader
 
     @Override
     public long getHeaderId(int position) {
+<<<<<<< HEAD
 
 
 
@@ -97,6 +98,10 @@ public class WaitFragmentAdapter extends BaseAdapter implements StickyListHeader
             Log.d("日期", "l:" + l);
             return Long.parseLong(dayWeek);
         }
+=======
+        return position;
+//        return Long.parseLong(mNearBean.getData().getComing().get(position).getComingTitle() + "");
+>>>>>>> feature/平
     }
 
     @Override
