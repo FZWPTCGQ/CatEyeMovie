@@ -11,6 +11,7 @@ import com.example.qianggedemac.cem.R;
 import com.example.qianggedemac.cem.baseclass.BaseFragment;
 import com.example.qianggedemac.cem.film.findfilm.MoiveFindFragment;
 import com.example.qianggedemac.cem.film.hot.HotFragment;
+import com.example.qianggedemac.cem.film.refreshablewaitfragment.RefreshableWaitFragment;
 import com.example.qianggedemac.cem.film.wait.WaitFragment;
 import com.flyco.tablayout.SlidingTabLayout;
 
@@ -45,7 +46,7 @@ public class FilmFragment extends BaseFragment {
         View decorView = getActivity().getWindow().getDecorView();
         ViewPager vp = ViewFindUtils.find(decorView, R.id.fragment_film_vp);
         mFragments.add(new HotFragment());
-        mFragments.add(new WaitFragment());
+        mFragments.add(new RefreshableWaitFragment());
         mFragments.add(new MoiveFindFragment());
         mAdapter = new MyPagerAdapter(getChildFragmentManager(),mFragments);
         vp.setAdapter(mAdapter);
