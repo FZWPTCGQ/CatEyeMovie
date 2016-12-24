@@ -4,7 +4,9 @@ import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.qianggedemac.cem.BuildConfig;
 import com.example.qianggedemac.cem.R;
 
 
@@ -21,7 +24,7 @@ import com.example.qianggedemac.cem.R;
  * Created by dllo on 2016/12/20.
  */
 
-public class FindRvAdapter extends RecyclerView.Adapter<FindRvAdapter.FindViewHolder>  {
+public class FindRvAdapter extends RecyclerView.Adapter<FindRvAdapter.FindViewHolder> {
 
     private FindTopBean mFindTopBean;
     private FindTodayBean mFindTodayBean;
@@ -55,7 +58,8 @@ public class FindRvAdapter extends RecyclerView.Adapter<FindRvAdapter.FindViewHo
         if (mFindTopBean == null) {
             return mFindTodayBean.getData().getFeeds().get(position).getStyle();
         } else {
-            return position == 0 ? -1 : mFindTodayBean.getData().getFeeds().get(position - 1).getStyle();
+
+            return position == 0 ? 1 : mFindTodayBean.getData().getFeeds().get(position - 1).getStyle();
         }
     }
 
@@ -63,7 +67,7 @@ public class FindRvAdapter extends RecyclerView.Adapter<FindRvAdapter.FindViewHo
     public FindViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         FindViewHolder mViewHolder = null;
         switch (viewType) {
-            case -1:
+            case 1:
                 View view1 = LayoutInflater.from(mContext).inflate(R.layout.item_find_head, parent, false);
                 mViewHolder = new FindViewHolder(view1);
                 break;
@@ -79,24 +83,26 @@ public class FindRvAdapter extends RecyclerView.Adapter<FindRvAdapter.FindViewHo
                 View view4 = LayoutInflater.from(mContext).inflate(R.layout.item_three_more, parent, false);
                 mViewHolder = new FindViewHolder(view4);
                 break;
-//            default:
-//                View view7 = LayoutInflater.from(mContext).inflate(R.layout.item_find_seven, parent, false);
-//                mViewHolder = new FindViewHolder(view7);
-//                break;
+            default:
+                View view7 = LayoutInflater.from(mContext).inflate(R.layout.item_find_seven, parent, false);
+                mViewHolder = new FindViewHolder(view7);
+                break;
+
+//
         }
         return mViewHolder;
     }
 
     @Override
     public void onBindViewHolder(final FindViewHolder holder, int position) {
-        final int type = getItemViewType(position);
+        int type = getItemViewType(position);
 
         target = holder.itemView;
 
 
         switch (type) {
 
-            case -1:
+            case 1:
                 if (mFindTopBean != null) {
 
                 }
@@ -123,23 +129,40 @@ public class FindRvAdapter extends RecyclerView.Adapter<FindRvAdapter.FindViewHo
                     itemAnim3.start();
                 }
                 break;
+            case 4:
+                if (mFindTodayBean != null && mFindTopBean != null) {
+                    itemAnim3 = new AnimatorSet();
+                    itemAnim3.playTogether(ObjectAnimator.ofFloat(target, "translationY", -500f, 0.0f),
+                            ObjectAnimator.ofFloat(target, "alpha", target.getAlpha(), 1.0f));
+                    itemAnim3.setTarget(target);
+                    itemAnim3.setDuration(300);
+                    itemAnim3.start();
+                }
+                break;
+            default:
+                if (mFindTodayBean != null && mFindTopBean != null) {
+                    itemAnim3 = new AnimatorSet();
+                    itemAnim3.playTogether(ObjectAnimator.ofFloat(target, "translationY", 800f, 0.0f),
+                            ObjectAnimator.ofFloat(target, "alpha", target.getAlpha(), 1.0f));
+                    itemAnim3.setTarget(target);
+                    itemAnim3.setDuration(300);
+                    itemAnim3.start();
+                }
+                break;
         }
 
-        if (type != -1) {
+        if (type != 1) {
             position = position - 1;
         }
         switch (type) {
 
-            case -1:
+            case 1:
                 if (mFindTopBean != null) {
                     Glide.with(mContext).load(mFindTopBean.getData().get(0).getImage().getUrl()).into(holder.findHeaderTop);
                     Glide.with(mContext).load(mFindTopBean.getData().get(1).getImage().getUrl()).into(holder.findHeaderNew);
                     Glide.with(mContext).load(mFindTopBean.getData().get(2).getImage().getUrl()).into(holder.findHeaderStore);
                     Glide.with(mContext).load(mFindTopBean.getData().get(3).getImage().getUrl()).into(holder.findHeaderHouse);
-//                    holder.findHeaderTop.setOnClickListener(this);
-//                    holder.findHeaderNew.setOnClickListener(this);
-//                    holder.findHeaderStore.setOnClickListener(this);
-//                    holder.findHeaderHouse.setOnClickListener(this);
+
                 }
                 break;
 
@@ -185,7 +208,20 @@ public class FindRvAdapter extends RecyclerView.Adapter<FindRvAdapter.FindViewHo
 //                    }else {
 //                        holder.findThreeMoreImagesThreeImg.setImageResource(R.mipmap.icon);
 //                    }
+                }
+                break;
+            default:
+                if (mFindTodayBean != null && mFindTopBean != null) {
 
+                    holder.findSevenTitleTv.setText(mFindTodayBean.getData().getFeeds().get(position).getTitle());
+
+                    if (mFindTodayBean.getData().getFeeds().get(position).getUser() != null) {
+                        holder.findSevenNickNameTv.setText(mFindTodayBean.getData().getFeeds().get(position).getUser().getNickName());
+                    } else {
+                        holder.findSevenNickNameTv.setText("");
+                    }
+                   Glide.with(mContext).load(mFindTodayBean.getData().getFeeds().
+                            get(position).getImages().get(0).getUrl()).into(holder.findSevenIv);
 
                 }
                 break;
@@ -204,9 +240,6 @@ public class FindRvAdapter extends RecyclerView.Adapter<FindRvAdapter.FindViewHo
         }
         return num;
     }
-
-
-
 
     public class FindViewHolder extends RecyclerView.ViewHolder {
         private TextView findThreeTitleTv;
@@ -238,10 +271,11 @@ public class FindRvAdapter extends RecyclerView.Adapter<FindRvAdapter.FindViewHo
         private LinearLayout findThreeItemLl;
         private RelativeLayout findOneItemRL;
         private RelativeLayout findThreeMoreItemRl;
+
         private LinearLayout findSevenItemLl;
-//        private TextView findSevenTitleTv;
-//        private ImageView findSevenImageImg;
-//        private TextView findSevenNickNameTv;
+        private TextView findSevenTitleTv;
+        private ImageView findSevenIv;
+        private TextView findSevenNickNameTv;
 
         public FindViewHolder(View itemView) {
             super(itemView);
@@ -269,7 +303,6 @@ public class FindRvAdapter extends RecyclerView.Adapter<FindRvAdapter.FindViewHo
             findThreeCommentCountTv = (TextView) itemView.findViewById(R.id.item_find_third_comment_count_tv);
 
 
-
             findThreeMoreItemRl = (RelativeLayout) itemView.findViewById(R.id.find_three_more_item_rl);
             findThreeMoreTitleTv = (TextView) itemView.findViewById(R.id.find_three_more_title_tv);
             findThreeMoreImagesOneImg = (ImageView) itemView.findViewById(R.id.find_three_more_one_iv);
@@ -279,24 +312,19 @@ public class FindRvAdapter extends RecyclerView.Adapter<FindRvAdapter.FindViewHo
             findThreeMoreViewCountTv = (TextView) itemView.findViewById(R.id.find_three_more_view_count_tv);
             findThreeMoreCommentCountTv = (TextView) itemView.findViewById(R.id.find_three_more_comment_count_tv);
 
-
-
-
-//            findSevenItemLl = (LinearLayout) itemView.findViewById(R.id.find_seven_item_ll);
-//            findSevenTitleTv = (TextView) itemView.findViewById(R.id.find_seven_title_tv);
-//            findSevenImageImg = (ImageView) itemView.findViewById(R.id.find_seven_image_img);
-//            findSevenNickNameTv = (TextView) itemView.findViewById(R.id.find_seven_nick_name_tv);
-
-
+            findSevenItemLl = (LinearLayout) itemView.findViewById(R.id.find_seven_item_ll);
+            findSevenTitleTv = (TextView) itemView.findViewById(R.id.find_seven_title_tv);
+            findSevenIv = (ImageView) itemView.findViewById(R.id.find_seven_iv);
+            findSevenNickNameTv = (TextView) itemView.findViewById(R.id.find_seven_nick_name_tv);
         }
     }
 
-    @Override
-    public void unregisterAdapterDataObserver(RecyclerView.AdapterDataObserver observer) {
-        if (observer != null) {
-            super.unregisterAdapterDataObserver(observer);
-        }
-    }
+//    @Override
+//    public void unregisterAdapterDataObserver(RecyclerView.AdapterDataObserver observer) {
+//        if (observer != null) {
+//            super.unregisterAdapterDataObserver(observer);
+//        }
+//    }
 
 
 }
