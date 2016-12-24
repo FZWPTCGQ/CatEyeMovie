@@ -9,6 +9,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="12月23日"
+      android:textColor="#000000"
       android:textSize="@dimen/sizeTen"
       android:layout_marginBottom="@dimen/marginTen"/>
     <RelativeLayout
@@ -34,13 +35,17 @@
         android:layout_width="@dimen/oneHundred"
         android:maxLines="1"
         android:ellipsize="end"
+        android:textSize="10dp"
         android:layout_height="wrap_content"
-        android:text="摆渡人"/>
+        android:text="摆渡人"
+    android:textColor="#000000"/>
     <TextView
         android:id="@+id/wait_item_two_detail_wish_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="多少人想看"/>
+        android:text="多少人想看"
+        android:textSize="10dp"
+    android:textColor="#000000"/>
 
 
 </LinearLayout>

@@ -1,13 +1,11 @@
 package com.example.qianggedemac.cem.film.wait;
 
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.util.ArrayMap;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.qianggedemac.cem.R;
 import com.example.qianggedemac.cem.baseclass.BaseFragment;
@@ -56,12 +54,12 @@ public class WaitFragment extends BaseFragment {
     }
 
     private void parseInternet() {
-        OkHttpManager.getInstance().get(UrlTools.MOVIE_WAIT_LISTVIEW, NearBean.class, new NetCallBack<NearBean>() {
+        OkHttpManager.getInstance().get(UrlTools.MOVIE_WAIT_LISTVIEW, NearBean1.class, new NetCallBack<NearBean1>() {
             @Override
-            public void onResponse(NearBean bean) {
+            public void onResponse(NearBean1 bean) {
                 mWaitFragmentAdapter.setNearBean(bean);
                 List<String> list = new ArrayList<String>();
-                Map<String,List<NearBean.DataBean.ComingBean>> map = new ArrayMap<String, List<NearBean.DataBean.ComingBean>>();
+                Map<String,List<NearBean1.DataBean.ComingBean>> map = new ArrayMap<String, List<NearBean1.DataBean.ComingBean>>();
                 for (int i = 0; i < bean.getData().getComing().size(); i++) {
                     String date = bean.getData().getComing().get(i).getComingTitle();
                     list.add(date);

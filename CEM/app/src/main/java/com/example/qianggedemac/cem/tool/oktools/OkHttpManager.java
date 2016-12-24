@@ -59,6 +59,13 @@ public class OkHttpManager  {
     }
 
     private <T> void postOkHttp(Request request, final Class<T> mClass, final NetCallBack<T> netCallBack) {
+//        try {
+//            Response execute = mOkHttpClient.newCall(request).execute();
+//
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
         mOkHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {

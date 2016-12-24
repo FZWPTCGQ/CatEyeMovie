@@ -17,8 +17,6 @@ import com.example.qianggedemac.cem.tool.UrlTools;
 import com.example.qianggedemac.cem.tool.oktools.NetCallBack;
 import com.example.qianggedemac.cem.tool.oktools.OkHttpManager;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -33,7 +31,7 @@ public class WaitFragmentAdapter extends BaseAdapter implements StickyListHeader
 
     private RecommedBean mRecommedBean;
     private WishBean mWishBean;
-    private NearBean mNearBean;
+    private NearBean1 mNearBean;
     private static final int TYPE_ONE = 1;
     private static final int TYPE_TWO = 2;
     private static final int TYPE_THREE = 3;
@@ -43,14 +41,14 @@ public class WaitFragmentAdapter extends BaseAdapter implements StickyListHeader
     private BodyHolderNear mBodyHolderNear;
     private BodyHolderRecommend mMBodyHolderRecommend;
     private List<String> mLists;
-    private Map<String, List<NearBean.DataBean.ComingBean>> mMap;
+    private Map<String, List<NearBean1.DataBean.ComingBean>> mMap;
 
     public void setLists(List<String> lists) {
         mLists = lists;
         notifyDataSetChanged();
     }
 
-    public void setMap(Map<String, List<NearBean.DataBean.ComingBean>> map) {
+    public void setMap(Map<String, List<NearBean1.DataBean.ComingBean>> map) {
         mMap = map;
         notifyDataSetChanged();
     }
@@ -58,7 +56,7 @@ public class WaitFragmentAdapter extends BaseAdapter implements StickyListHeader
     public WaitFragmentAdapter(Context context) {
         mContext = context;
     }
-    public void setNearBean(NearBean nearBean) {
+    public void setNearBean(NearBean1 nearBean) {
         mNearBean = nearBean;
         Log.d("数据", "mNearBean.getData().getComing().size():" + mNearBean.getData().getComing().size());
         notifyDataSetChanged();
@@ -76,7 +74,6 @@ public class WaitFragmentAdapter extends BaseAdapter implements StickyListHeader
 
     @Override
     public long getHeaderId(int position) {
-<<<<<<< HEAD
 
 
 
@@ -98,10 +95,6 @@ public class WaitFragmentAdapter extends BaseAdapter implements StickyListHeader
             Log.d("日期", "l:" + l);
             return Long.parseLong(dayWeek);
         }
-=======
-        return position;
-//        return Long.parseLong(mNearBean.getData().getComing().get(position).getComingTitle() + "");
->>>>>>> feature/平
     }
 
     @Override

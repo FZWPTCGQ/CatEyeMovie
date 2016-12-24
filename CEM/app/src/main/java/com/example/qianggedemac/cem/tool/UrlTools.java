@@ -28,8 +28,11 @@ public class UrlTools {
     //电影 -> 待映 -> 近期最受期待
     public static final String MOVIE_WAIT_WISH = "http://api.maoyan.com/mmdb/movie/v1/list/wish/order/coming.json?offset=0&limit=50&ci=65";
     //下面的lisView
-    public static final String MOVIE_WAIT_LISTVIEW = "http://api.maoyan.com/mmdb/movie/v2/list/rt/order/coming.json?ci=65&limit=12&token=&utm_campaign=AmovieBmovieCD-1";
-
+    public static final String MOVIE_WAIT_LISTVIEW = "http://api.maoyan.com/mmdb/movie/list/info.json?ci=65&headline=1&movieIds=345970,1198942,1187526,247913,1188324,345106,627570,344762,246276,343742,1190357,342613";
+    //拼接后的URL
+    public static final String MOVIE_WAIT_NEW_URL = "http://api.maoyan.com/mmdb/movie/list/info.json?ci=65&headline=1&movieIds=";
+    //刷新
+    public static final String MOVIE_WAIT_LISTVIEW_MORE = "http://api.maoyan.com/mmdb/movie/v2/list/rt/order/coming.json?ci=65&limit=12&token=&utm_campaign=AmovieBmovieCD-1";
     //电影 ->搜索 ->找片 -> 类型/地区/年代
     public static final String MOVIE_FIND_TYPE_WHERE_WHEN = "http://api.maoyan.com/mmdb/search/movie/tag/types.json?";
     //电影 ->搜索 ->找片 -> 热映口碑等四个
