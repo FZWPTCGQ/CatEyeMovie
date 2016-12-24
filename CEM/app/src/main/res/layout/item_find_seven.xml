@@ -4,20 +4,21 @@
               android:id="@+id/find_seven_item_ll"
               android:layout_width="match_parent"
               android:layout_height="140dp"
-              android:padding="5dp">
+              android:padding="8dp">
     <TextView
+        android:maxLines="2"
         android:id="@+id/find_seven_title_tv"
         android:layout_width="match_parent"
         android:layout_marginBottom="5dp"
         android:layout_height="wrap_content"/>
     <ImageView
-        android:id="@+id/find_seven_image_img"
+        android:id="@+id/find_seven_iv"
         android:scaleType="fitXY"
         android:layout_width="match_parent"
-        android:layout_height="85dp"/>
+        android:layout_height="100dp"/>
     <TextView
         android:id="@+id/find_seven_nick_name_tv"
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"
-        android:layout_height="20dp"/>
+        android:layout_height="wrap_content"/>
 </LinearLayout>

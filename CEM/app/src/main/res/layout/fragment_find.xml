@@ -1,40 +1,54 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context="com.example.qianggedemac.cem.find.FindFragment">
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="com.example.qianggedemac.cem.find.FindFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <include layout="@layout/search_layout"
-        android:id="@+id/find_search_layout"/>
+    <include
+        android:id="@+id/find_search_layout"
+        layout="@layout/find_search_layout"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/find_search_layout">
+
+        <ImageView
+            android:id="@+id/loading_img"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+
+            android:layout_gravity="center_horizontal"
+            android:src="@mipmap/loading_before"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/loading_before"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+
+            android:layout_gravity="center_horizontal"
+            android:src="@mipmap/loading_background"
+            android:visibility="gone"/>
+    </FrameLayout>
+
     <FrameLayout
         android:layout_below="@id/find_search_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:visibility="gone"
-            android:id="@+id/loading_img"
-            android:layout_gravity="center_horizontal"
-
-            android:src="@mipmap/loading_before"
-            android:layout_width="50dp"
-            android:layout_height="50dp"/>
-
-        <ImageView
-            android:visibility="gone"
-            android:id="@+id/loading_before"
-            android:layout_gravity="center_horizontal"
-
-            android:src="@mipmap/loading_background"
-            android:layout_width="48dp"
-            android:layout_height="48dp"/>
+        android:layout_height="match_parent">
+        <com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView
+            android:id="@+id/find_pull_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"/>
+        <TextView
+            android:id="@+id/invisible_tv"
+          android:visibility="gone"
+            android:text="dsfasdfsda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
     </FrameLayout>
-    <com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView
-        android:layout_below="@id/find_search_layout"
-        android:id="@+id/find_pull_rv"
-
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
 
 
 </RelativeLayout>
