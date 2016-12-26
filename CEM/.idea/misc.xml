@@ -45,7 +45,6 @@
   </component>
   <component name="masterDetails">
     <states>
-<<<<<<< HEAD
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
           <splitter-proportions>
@@ -69,8 +68,6 @@
           </splitter-proportions>
         </settings>
       </state>
-=======
->>>>>>> d342203099e051e884fb4299fc61d001bc05af46
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
@@ -83,7 +80,6 @@
           </splitter-proportions>
         </settings>
       </state>
-<<<<<<< HEAD
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
           <splitter-proportions>
@@ -106,8 +102,6 @@
           </splitter-proportions>
         </settings>
       </state>
-=======
->>>>>>> d342203099e051e884fb4299fc61d001bc05af46
     </states>
   </component>
 </project>
