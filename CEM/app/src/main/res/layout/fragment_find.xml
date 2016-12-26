@@ -42,12 +42,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="visible"/>
-        <TextView
-            android:id="@+id/invisible_tv"
-          android:visibility="gone"
-            android:text="dsfasdfsda"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+       <include layout="@layout/invisible_search"
+                android:visibility="gone"
+
+       />
     </FrameLayout>
 
 

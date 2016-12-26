@@ -17,8 +17,6 @@ import com.example.qianggedemac.cem.tool.UrlTools;
 import com.example.qianggedemac.cem.tool.oktools.NetCallBack;
 import com.example.qianggedemac.cem.tool.oktools.OkHttpManager;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -33,7 +31,7 @@ public class WaitFragmentAdapter extends BaseAdapter implements StickyListHeader
 
     private RecommedBean mRecommedBean;
     private WishBean mWishBean;
-    private NearBean mNearBean;
+    private NearBean1 mNearBean;
     private static final int TYPE_ONE = 1;
     private static final int TYPE_TWO = 2;
     private static final int TYPE_THREE = 3;
@@ -43,14 +41,14 @@ public class WaitFragmentAdapter extends BaseAdapter implements StickyListHeader
     private BodyHolderNear mBodyHolderNear;
     private BodyHolderRecommend mMBodyHolderRecommend;
     private List<String> mLists;
-    private Map<String, List<NearBean.DataBean.ComingBean>> mMap;
+    private Map<String, List<NearBean1.DataBean.ComingBean>> mMap;
 
     public void setLists(List<String> lists) {
         mLists = lists;
         notifyDataSetChanged();
     }
 
-    public void setMap(Map<String, List<NearBean.DataBean.ComingBean>> map) {
+    public void setMap(Map<String, List<NearBean1.DataBean.ComingBean>> map) {
         mMap = map;
         notifyDataSetChanged();
     }
@@ -58,8 +56,12 @@ public class WaitFragmentAdapter extends BaseAdapter implements StickyListHeader
     public WaitFragmentAdapter(Context context) {
         mContext = context;
     }
+<<<<<<< HEAD
 
     public void setNearBean(NearBean nearBean) {
+=======
+    public void setNearBean(NearBean1 nearBean) {
+>>>>>>> 5edae0c017c30e09528f6574e28f0add9bb6d914
         mNearBean = nearBean;
         Log.d("数据", "mNearBean.getData().getComing().size():" + mNearBean.getData().getComing().size());
         notifyDataSetChanged();
@@ -76,7 +78,14 @@ public class WaitFragmentAdapter extends BaseAdapter implements StickyListHeader
 
     @Override
     public long getHeaderId(int position) {
+<<<<<<< HEAD
         if (position == 0) {
+=======
+
+
+
+        if (position == 0){
+>>>>>>> 5edae0c017c30e09528f6574e28f0add9bb6d914
             return 1000;
         } else if (position == 1) {
             return 999;
@@ -94,8 +103,11 @@ public class WaitFragmentAdapter extends BaseAdapter implements StickyListHeader
             Log.d("日期", "l:" + l);
             return Long.parseLong(dayWeek);
         }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 5edae0c017c30e09528f6574e28f0add9bb6d914
     }
 
     @Override
