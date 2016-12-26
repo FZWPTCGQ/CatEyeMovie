@@ -319,12 +319,7 @@ public class FindRvAdapter extends RecyclerView.Adapter<FindRvAdapter.FindViewHo
         }
     }
 
-//    @Override
-//    public void unregisterAdapterDataObserver(RecyclerView.AdapterDataObserver observer) {
-//        if (observer != null) {
-//            super.unregisterAdapterDataObserver(observer);
-//        }
-//    }
+
 
 
 }
