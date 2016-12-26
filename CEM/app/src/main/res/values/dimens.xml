@@ -31,6 +31,7 @@
     <dimen name="twoHundred">200dp</dimen>
     <dimen name="headview_iv">30dp</dimen>
     <dimen name="mine_iv_height">60px</dimen>
+    <dimen name="forty">40dp</dimen>
 
 
 </resources>

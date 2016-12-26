@@ -6,6 +6,10 @@ import android.animation.ObjectAnimator;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +20,7 @@ import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +29,7 @@ import com.example.qianggedemac.cem.R;
 import com.example.qianggedemac.cem.baseclass.BaseFragment;
 import com.example.qianggedemac.cem.tool.DividerItemDecoration;
 import com.example.qianggedemac.cem.tool.UrlTools;
+import com.example.qianggedemac.cem.tool.myapp.MyApp;
 import com.example.qianggedemac.cem.tool.oktools.NetCallBack;
 import com.example.qianggedemac.cem.tool.oktools.OkHttpManager;
 import com.example.qianggedemac.cem.view.ClearEditText;
@@ -49,10 +55,14 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
     private View target; // 动画目标
     private ImageView searchIv;
     private TextView findSearchTv;// 取消的字
-    private TextView testTv;// 下面的布局 以后得换
+   // private TextView testTv;// 下面的布局 以后得换
     private Boolean isNext = false; // 判断是否是下一次
     private ClearEditText mClearEditText;
+    private LinearLayout mLinearLayout;
 
+
+    private RecyclerView mRecyclerView;
+    private FindSearchAdapter mFindSearchAdapter;
 
     @Override
     protected int setLayout() {
@@ -65,19 +75,45 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
         loadingBefore = (ImageView) view.findViewById(R.id.loading_before);
         findRv = (PullLoadMoreRecyclerView) view.findViewById(R.id.find_pull_rv);
         mAdapter = new FindRvAdapter(mContext);
-
         findRv.setAdapter(mAdapter);
         findRv.setLinearLayout();
         findRv.addItemDecoration(new DividerItemDecoration(mContext, DividerItemDecoration.VERTICAL_LIST));
-
         // 搜索动画
         searchRl = (RelativeLayout) view.findViewById(R.id.find_search_layout);// 搜索的布局
-        testTv = (TextView) view.findViewById(R.id.invisible_tv);// 下面的布局 以后得换
+
         mClearEditText = (ClearEditText) view.findViewById(R.id.search_clear_et);
         mClearEditText.setFocusable(false);
 
         searchIv = (ImageView) view.findViewById(R.id.find_search_iv);
         findSearchTv = (TextView) view.findViewById(R.id.find_search_tv);
+        /**
+         * 搜索里的内容
+         */
+        mLinearLayout = (LinearLayout)view.findViewById(R.id.fragment_find_search_detail_rv);
+        mRecyclerView = (RecyclerView)view.findViewById(R.id.invisible_search_rv);
+        mFindSearchAdapter = new FindSearchAdapter();
+        OkHttpManager.getInstance().get(UrlTools.HOT_SEARCH, FindSearchBean.class, new NetCallBack<FindSearchBean>() {
+            @Override
+            public void onResponse(FindSearchBean bean) {
+                mFindSearchAdapter.setFindSearchBean(bean);
+                Log.d("数据", "bean.getData().size():" + bean.getData().size());
+                mRecyclerView.setAdapter(mFindSearchAdapter);
+                StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.HORIZONTAL);
+                mRecyclerView.setLayoutManager(manager);
+            }
+
+            @Override
+            public void onError(Exception e) {
+                Log.d("数据", e.getMessage());
+            }
+        });
+
+        String content = mClearEditText.getText().toString();
+         
+            //int a = UrlTools.SEARCH_KEY.indexOf("参数",0);
+            String newUrl = UrlTools.SEARCH_KEY.replace("参数",content);
+            Log.d("网址", newUrl);
+
     }
 
     @Override
@@ -215,11 +251,11 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
             case R.id.find_search_layout:
                 if (!isNext) {
                     findRv.setVisibility(View.GONE);
-                    testTv.setVisibility(View.VISIBLE);
+//                    testTv.setVisibility(View.VISIBLE);
                     isNext = true;
                 } else {
                     findRv.setVisibility(View.VISIBLE);
-                    testTv.setVisibility(View.GONE);
+//                    testTv.setVisibility(View.GONE);
                     isNext = false;
                 }
 
@@ -229,7 +265,6 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
 
                 if (!isNext) {
                     findRv.setVisibility(View.GONE);
-                    testTv.setVisibility(View.VISIBLE);
 //                    ObjectAnimator animator1 = ObjectAnimator.ofFloat(target, "scaleX", 1, 0.7f);
 //                    ObjectAnimator animator2 = ObjectAnimator.ofFloat(target,"translationX", 1, -100);
 //                    ObjectAnimator animator3 = ObjectAnimator.ofFloat(target,"translationX", 1, -1.0f);
@@ -255,12 +290,14 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
 //                    ObjectAnimator.ofFloat(findSearchTv,View.TRANSLATION_X,300,0.6f)
                     findSearchTv.setVisibility(View.VISIBLE);
                     findSearchTv.setTextColor(Color.WHITE);
+                    mLinearLayout.setVisibility(View.VISIBLE);
                     tvSet.setTarget(findSearchTv);
                     tvSet.setDuration(200);
                     tvSet.start();
                     mClearEditText.setFocusable(true);
                     mClearEditText.setEnabled(true);
 //                    mClearEditText.requestFocus();
+
                     InputMethodManager imm = (InputMethodManager) mClearEditText.getContext().getSystemService(mContext.INPUT_METHOD_SERVICE);
                     imm.toggleSoftInput(0, InputMethodManager.SHOW_FORCED);
 
@@ -279,9 +316,10 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
                 break;
             case R.id.find_search_tv:
                 findRv.setVisibility(View.VISIBLE);
-                testTv.setVisibility(View.GONE);
+
                 enlarge();
                 findSearchTv.setVisibility(View.GONE);
+                mLinearLayout.setVisibility(View.GONE);
                 isNext = false;
 
                 InputMethodManager imm = (InputMethodManager) mClearEditText.getContext().getSystemService(mContext.INPUT_METHOD_SERVICE);
