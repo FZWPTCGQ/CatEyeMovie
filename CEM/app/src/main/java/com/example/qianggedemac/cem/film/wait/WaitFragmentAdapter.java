@@ -38,7 +38,7 @@ public class WaitFragmentAdapter extends BaseAdapter implements StickyListHeader
     private static final int TYPE_TWO = 2;
     private static final int TYPE_THREE = 3;
     private static final int COUNT = 100;
-  //  private BodyHolderRecommend mBodyHolderRecommend;
+    //  private BodyHolderRecommend mBodyHolderRecommend;
     private BodyHolderWish mBodyHolderWish;
     private BodyHolderNear mBodyHolderNear;
     private BodyHolderRecommend mMBodyHolderRecommend;
@@ -58,6 +58,7 @@ public class WaitFragmentAdapter extends BaseAdapter implements StickyListHeader
     public WaitFragmentAdapter(Context context) {
         mContext = context;
     }
+
     public void setNearBean(NearBean nearBean) {
         mNearBean = nearBean;
         Log.d("数据", "mNearBean.getData().getComing().size():" + mNearBean.getData().getComing().size());
@@ -73,35 +74,28 @@ public class WaitFragmentAdapter extends BaseAdapter implements StickyListHeader
     }
 
 
-
     @Override
     public long getHeaderId(int position) {
-<<<<<<< HEAD
-
-
-
-        if (position == 0){
+        if (position == 0) {
             return 1000;
-        }else if (position ==1){
+        } else if (position == 1) {
             return 999;
-        }else {
-            String date = mNearBean.getData().getComing().get(position-2).getComingTitle();
+        } else {
+            String date = mNearBean.getData().getComing().get(position - 2).getComingTitle();
             Log.d("发撒上的", "date.length():" + date.length());
             int a = date.indexOf(" ");
             Log.d("发撒上的", "a:" + a);
-            String day = date.replace(" ","");
-            String dayMonth = day.replace("月","");
-            String dayDay = dayMonth.replace("日","");
-            String dayWeek = dayDay.substring(0,dayDay.length() - 2);
-            Log.d("日期", "天"+dayWeek);
+            String day = date.replace(" ", "");
+            String dayMonth = day.replace("月", "");
+            String dayDay = dayMonth.replace("日", "");
+            String dayWeek = dayDay.substring(0, dayDay.length() - 2);
+            Log.d("日期", "天" + dayWeek);
             Long l = Long.parseLong(dayWeek);
             Log.d("日期", "l:" + l);
             return Long.parseLong(dayWeek);
         }
-=======
-        return position;
-//        return Long.parseLong(mNearBean.getData().getComing().get(position).getComingTitle() + "");
->>>>>>> feature/平
+
+
     }
 
     @Override
@@ -119,17 +113,17 @@ public class WaitFragmentAdapter extends BaseAdapter implements StickyListHeader
     public long getItemId(int i) {
 
 
-            return i;
+        return i;
 
     }
 
     @Override
     public int getItemViewType(int position) {
-        if (position == 0){
+        if (position == 0) {
             return TYPE_ONE;
-        }else if (position == 1){
+        } else if (position == 1) {
             return TYPE_TWO;
-        }else{
+        } else {
             return TYPE_THREE;
         }
     }
@@ -145,19 +139,19 @@ public class WaitFragmentAdapter extends BaseAdapter implements StickyListHeader
         mBodyHolderWish = null;
         mBodyHolderNear = null;
         int type = getItemViewType(i);
-        switch (type){
+        switch (type) {
             case TYPE_ONE:
-                if (view == null){
-                    view = LayoutInflater.from(mContext).inflate(R.layout.wait_fragment_adapter_item_one,viewGroup,false);
+                if (view == null) {
+                    view = LayoutInflater.from(mContext).inflate(R.layout.wait_fragment_adapter_item_one, viewGroup, false);
                     mMBodyHolderRecommend = new BodyHolderRecommend(view);
                     view.setTag(mMBodyHolderRecommend);
-                }else{
+                } else {
                     mMBodyHolderRecommend = (BodyHolderRecommend) view.getTag();
                 }
                 final WaitRecommedAdapter waitRecommedAdapter = new WaitRecommedAdapter(mContext);
 
                 mMBodyHolderRecommend.mRecyclerViewRecommend.setAdapter(waitRecommedAdapter);
-                LinearLayoutManager manager = new LinearLayoutManager(mContext,LinearLayoutManager.HORIZONTAL,false);
+                LinearLayoutManager manager = new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false);
                 mMBodyHolderRecommend.mRecyclerViewRecommend.setLayoutManager(manager);
                 OkHttpManager.getInstance().get(UrlTools.MOVIE_WAIT_RECOMMENDATION, RecommedBean.class, new NetCallBack<RecommedBean>() {
                     @Override
@@ -174,16 +168,16 @@ public class WaitFragmentAdapter extends BaseAdapter implements StickyListHeader
 
                 break;
             case TYPE_TWO:
-                if (view == null){
-                    view = LayoutInflater.from(mContext).inflate(R.layout.wait_fragment_adapter_item_two,viewGroup,false);
+                if (view == null) {
+                    view = LayoutInflater.from(mContext).inflate(R.layout.wait_fragment_adapter_item_two, viewGroup, false);
                     mBodyHolderWish = new BodyHolderWish(view);
                     view.setTag(mBodyHolderWish);
-                }else{
+                } else {
                     mBodyHolderWish = (BodyHolderWish) view.getTag();
                 }
                 final WaitWishAdapter waitWishAdapter = new WaitWishAdapter(mContext);
                 mBodyHolderWish.mRecyclerViewWish.setAdapter(waitWishAdapter);
-                LinearLayoutManager manager1 = new LinearLayoutManager(mContext,LinearLayoutManager.HORIZONTAL,false);
+                LinearLayoutManager manager1 = new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false);
                 mBodyHolderWish.mRecyclerViewWish.setLayoutManager(manager1);
                 OkHttpManager.getInstance().get(UrlTools.MOVIE_WAIT_WISH, WishBean.class, new NetCallBack<WishBean>() {
                     @Override
@@ -200,19 +194,19 @@ public class WaitFragmentAdapter extends BaseAdapter implements StickyListHeader
 
                 break;
             case TYPE_THREE:
-                if (view == null){
-                    view = LayoutInflater.from(mContext).inflate(R.layout.wait_fragment_adapter_item_three,viewGroup,false);
+                if (view == null) {
+                    view = LayoutInflater.from(mContext).inflate(R.layout.wait_fragment_adapter_item_three, viewGroup, false);
                     mBodyHolderNear = new BodyHolderNear(view);
                     view.setTag(mBodyHolderNear);
-                }else{
+                } else {
                     mBodyHolderNear = (BodyHolderNear) view.getTag();
                 }
-                mBodyHolderNear.nmTvNear.setText(mNearBean.getData().getComing().get(i-2).getNm());
-                mBodyHolderNear.wishTvNear.setText(mNearBean.getData().getComing().get(i-2).getWish() + "人想看");
-                mBodyHolderNear.scmTvNear.setText(mNearBean.getData().getComing().get(i-2).getScm());
-                mBodyHolderNear.starTvNear.setText(mNearBean.getData().getComing().get(i-2).getStar());
-                String url = mNearBean.getData().getComing().get(i-2).getImg();
-                String newUrl = url.replace("/w.h/","/165.220/");
+                mBodyHolderNear.nmTvNear.setText(mNearBean.getData().getComing().get(i - 2).getNm());
+                mBodyHolderNear.wishTvNear.setText(mNearBean.getData().getComing().get(i - 2).getWish() + "人想看");
+                mBodyHolderNear.scmTvNear.setText(mNearBean.getData().getComing().get(i - 2).getScm());
+                mBodyHolderNear.starTvNear.setText(mNearBean.getData().getComing().get(i - 2).getStar());
+                String url = mNearBean.getData().getComing().get(i - 2).getImg();
+                String newUrl = url.replace("/w.h/", "/165.220/");
                 Glide.with(mContext).load(newUrl).into(mBodyHolderNear.imgIvNear);
                 break;
         }
@@ -223,11 +217,11 @@ public class WaitFragmentAdapter extends BaseAdapter implements StickyListHeader
     public View getHeaderView(int position, View convertView, ViewGroup parent) {
         //int pos = position + 1;
         HeaderViewHolder headerViewHolder = null;
-        if (convertView == null){
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.wait_fragment_adapter_item_header,parent,false);
+        if (convertView == null) {
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.wait_fragment_adapter_item_header, parent, false);
             headerViewHolder = new HeaderViewHolder(convertView);
             convertView.setTag(headerViewHolder);
-        }else{
+        } else {
             headerViewHolder = (HeaderViewHolder) convertView.getTag();
         }
 //        for (int i = 0; i < mNearBean.getData().getComing().size(); i++) {
@@ -251,57 +245,56 @@ public class WaitFragmentAdapter extends BaseAdapter implements StickyListHeader
 //
 //            }
 
-        if (position == 0){
+        if (position == 0) {
             headerViewHolder.mTextViewHeader.setText("预告片推荐");
-        }else if (position == 1){
+        } else if (position == 1) {
             headerViewHolder.mTextViewHeader.setText("近期最受期待");
-        }else{
-           headerViewHolder.mTextViewHeader.setText(mNearBean.getData().getComing().get(position-2).getComingTitle());
+        } else {
+            headerViewHolder.mTextViewHeader.setText(mNearBean.getData().getComing().get(position - 2).getComingTitle());
         }
 
         return convertView;
     }
 
 
-
-
-
-
-    public class HeaderViewHolder{
+    public class HeaderViewHolder {
         TextView mTextViewHeader;
-        public HeaderViewHolder(View view){
-            mTextViewHeader = (TextView)view.findViewById(R.id.wait_fragment_adapter_item_header_tv);
+
+        public HeaderViewHolder(View view) {
+            mTextViewHeader = (TextView) view.findViewById(R.id.wait_fragment_adapter_item_header_tv);
 
         }
     }
 
 
-
-
-
-    public class BodyHolderRecommend{
+    public class BodyHolderRecommend {
         RecyclerView mRecyclerViewRecommend;
-        public BodyHolderRecommend(View view){
-            mRecyclerViewRecommend = (RecyclerView)view.findViewById(R.id.wait_fragment_adapter_item_one_rv);
+
+        public BodyHolderRecommend(View view) {
+            mRecyclerViewRecommend = (RecyclerView) view.findViewById(R.id.wait_fragment_adapter_item_one_rv);
         }
     }
-    public class BodyHolderWish{
+
+    public class BodyHolderWish {
         RecyclerView mRecyclerViewWish;
-        public BodyHolderWish(View view){
-            mRecyclerViewWish = (RecyclerView)view.findViewById(R.id.wait_fragment_adapter_item_two_rv);
+
+        public BodyHolderWish(View view) {
+            mRecyclerViewWish = (RecyclerView) view.findViewById(R.id.wait_fragment_adapter_item_two_rv);
         }
     }
-    public class BodyHolderNear{
-        ImageView imgIvNear,verIvNear,playIvNear;
-        TextView nmTvNear,wishTvNear,scmTvNear,starTvNear;
-        public BodyHolderNear(View view){
-            playIvNear = (ImageView)view.findViewById(R.id.wait_item_three_playIv);
-            imgIvNear = (ImageView)view.findViewById(R.id.wait_item_three_img);
-            verIvNear = (ImageView)view.findViewById(R.id.wait_item_three_threeD_iv);
-            nmTvNear = (TextView)view.findViewById(R.id.wait_item_three_nm_tv);
-            wishTvNear = (TextView)view.findViewById(R.id.wait_item_three_wish_tv);
-            scmTvNear = (TextView)view.findViewById(R.id.wait_item_three_scm_tv);
-            starTvNear = (TextView)view.findViewById(R.id.wait_item_three_star_tv);
+
+    public class BodyHolderNear {
+        ImageView imgIvNear, verIvNear, playIvNear;
+        TextView nmTvNear, wishTvNear, scmTvNear, starTvNear;
+
+        public BodyHolderNear(View view) {
+            playIvNear = (ImageView) view.findViewById(R.id.wait_item_three_playIv);
+            imgIvNear = (ImageView) view.findViewById(R.id.wait_item_three_img);
+            verIvNear = (ImageView) view.findViewById(R.id.wait_item_three_threeD_iv);
+            nmTvNear = (TextView) view.findViewById(R.id.wait_item_three_nm_tv);
+            wishTvNear = (TextView) view.findViewById(R.id.wait_item_three_wish_tv);
+            scmTvNear = (TextView) view.findViewById(R.id.wait_item_three_scm_tv);
+            starTvNear = (TextView) view.findViewById(R.id.wait_item_three_star_tv);
         }
     }
 }
