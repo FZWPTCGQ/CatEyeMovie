@@ -1,16 +1,19 @@
 package com.example.qianggedemac.cem.film.hot;
 
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.qianggedemac.cem.R;
+import com.example.qianggedemac.cem.activity.HotDetailActivity;
 import com.example.qianggedemac.cem.baseclass.BaseFragment;
 import com.example.qianggedemac.cem.tool.UrlTools;
 import com.example.qianggedemac.cem.tool.myapp.MyApp;
@@ -67,11 +70,24 @@ public class HotFragment extends BaseFragment {
         /**
          * 刷新数据方法
          */
-        refreshMethod();
-
+      //  refreshMethod();
+       mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+           @Override
+           public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+               HotFragmentListViewBean.DataBean.HotBean bean = (HotFragmentListViewBean.DataBean.HotBean) adapterView.getItemAtPosition(i);
+               int movieId = bean.getId();
+               Log.d("大家放松点击发送", "movieId:" + movieId);
+               Intent intent = new Intent(MyApp.getContext(), HotDetailActivity.class);
+               intent.putExtra("movieId",movieId);
+               startActivity(intent);
+           }
+       });
 
     }
 
+    /**
+     *
+     */
     private void refreshMethod() {
         offset += 10;
         mListView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
@@ -114,6 +130,10 @@ public class HotFragment extends BaseFragment {
         OkHttpManager.getInstance().get(url,HotRefreshBean.class,netCallBack);
     }
 
+
+    /**
+     *
+     */
     private void parseListView() {
         OkHttpManager.getInstance().get(UrlTools.HOT_URL, HotFragmentListViewBean.class, new NetCallBack<HotFragmentListViewBean>() {
             @Override
@@ -128,18 +148,18 @@ public class HotFragment extends BaseFragment {
                 Log.d("asjfhak", e.getMessage());
             }
         });
-        getMovieHotList("65", 0, new NetCallBack<HotRefreshBean>() {
-            @Override
-            public void onResponse(HotRefreshBean bean) {
-                mHotRefreshAdapter.setHotRefreshBean(bean);
-                mListView.setAdapter(mHotRefreshAdapter);
-            }
-
-            @Override
-            public void onError(Exception e) {
-
-            }
-        });
+//        getMovieHotList("65", 0, new NetCallBack<HotRefreshBean>() {
+//            @Override
+//            public void onResponse(HotRefreshBean bean) {
+//                mHotRefreshAdapter.setHotRefreshBean(bean);
+//                mListView.setAdapter(mHotRefreshAdapter);
+//            }
+//
+//            @Override
+//            public void onError(Exception e) {
+//
+//            }
+//        });
 
 
        View view = LayoutInflater.from(mContext).inflate(R.layout.fragment_hot_header_view,null);
