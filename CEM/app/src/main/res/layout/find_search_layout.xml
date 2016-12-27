@@ -6,6 +6,7 @@
     android:layout_height="@dimen/fifty"
     android:background="@color/red"
     tools:showIn="@layout/fragment_find">
+
     <com.example.qianggedemac.cem.view.ClearEditText
         android:id="@+id/search_clear_et"
         android:layout_width="match_parent"
@@ -25,13 +26,14 @@
 
     <TextView
         android:id="@+id/find_search_tv"
-        android:layout_centerVertical="true"
-        android:layout_alignParentRight="true"
-        android:text="取消"
-        android:visibility="invisible"
-        android:layout_marginRight="@dimen/five"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/five"
+        android:text="取消"
+        android:visibility="invisible"/>
+
     <ImageView
         android:id="@+id/find_search_iv"
         android:layout_width="wrap_content"

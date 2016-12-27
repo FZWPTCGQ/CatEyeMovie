@@ -9,7 +9,9 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.text.InputType;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +20,7 @@ import android.view.animation.Animation;
 import android.view.animation.Interpolator;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -55,7 +58,7 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
     private View target; // 动画目标
     private ImageView searchIv;
     private TextView findSearchTv;// 取消的字
-   // private TextView testTv;// 下面的布局 以后得换
+    // private TextView testTv;// 下面的布局 以后得换
     private Boolean isNext = false; // 判断是否是下一次
     private ClearEditText mClearEditText;
     private LinearLayout mLinearLayout;
@@ -84,13 +87,14 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
         mClearEditText = (ClearEditText) view.findViewById(R.id.search_clear_et);
         mClearEditText.setFocusable(false);
 
+
         searchIv = (ImageView) view.findViewById(R.id.find_search_iv);
         findSearchTv = (TextView) view.findViewById(R.id.find_search_tv);
         /**
          * 搜索里的内容
          */
-        mLinearLayout = (LinearLayout)view.findViewById(R.id.fragment_find_search_detail_rv);
-        mRecyclerView = (RecyclerView)view.findViewById(R.id.invisible_search_rv);
+        mLinearLayout = (LinearLayout) view.findViewById(R.id.fragment_find_search_detail_rv);
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.invisible_search_rv);
         mFindSearchAdapter = new FindSearchAdapter();
         OkHttpManager.getInstance().get(UrlTools.HOT_SEARCH, FindSearchBean.class, new NetCallBack<FindSearchBean>() {
             @Override
@@ -98,7 +102,7 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
                 mFindSearchAdapter.setFindSearchBean(bean);
                 Log.d("数据", "bean.getData().size():" + bean.getData().size());
                 mRecyclerView.setAdapter(mFindSearchAdapter);
-                StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.HORIZONTAL);
+                StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.HORIZONTAL);
                 mRecyclerView.setLayoutManager(manager);
             }
 
@@ -109,10 +113,10 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
         });
 
         String content = mClearEditText.getText().toString();
-         
-            //int a = UrlTools.SEARCH_KEY.indexOf("参数",0);
-            String newUrl = UrlTools.SEARCH_KEY.replace("参数",content);
-            Log.d("网址", newUrl);
+
+        //int a = UrlTools.SEARCH_KEY.indexOf("参数",0);
+        String newUrl = UrlTools.SEARCH_KEY.replace("参数", content);
+        Log.d("网址", newUrl);
 
     }
 
@@ -245,32 +249,23 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
         searchSet = new AnimatorSet();
         tvSet = new AnimatorSet();
 
-
         switch (view.getId()) {
-
+            /**
+             * 整个搜索栏的点击
+             */
             case R.id.find_search_layout:
-                if (!isNext) {
-                    findRv.setVisibility(View.GONE);
-//                    testTv.setVisibility(View.VISIBLE);
-                    isNext = true;
-                } else {
-                    findRv.setVisibility(View.VISIBLE);
-//                    testTv.setVisibility(View.GONE);
-                    isNext = false;
-                }
-
                 break;
+            /**
+             * 搜索的edit_text的点击
+             */
             case R.id.search_clear_et:
-
-
                 if (!isNext) {
-                    findRv.setVisibility(View.GONE);
+
 //                    ObjectAnimator animator1 = ObjectAnimator.ofFloat(target, "scaleX", 1, 0.7f);
 //                    ObjectAnimator animator2 = ObjectAnimator.ofFloat(target,"translationX", 1, -100);
 //                    ObjectAnimator animator3 = ObjectAnimator.ofFloat(target,"translationX", 1, -1.0f);
 //                    searchSet.play(animator1).after(animator2);
 
-//
 //                    searchSet.playTogether(ObjectAnimator.ofFloat(target, "scaleX", 1, 0.9f),
 //                            ObjectAnimator.ofFloat(target, "pivotX", 0.0f),
 //                            ObjectAnimator.ofFloat(target, "translationX", 1, 0.0f));
@@ -279,39 +274,46 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
 //                    searchSet.setDuration(200);
 //                    searchSet.start();
 //                    searchIv.setVisibility(View.GONE);
-
-                    mClearEditText.setScaleX(0.9f);
-                    mClearEditText.setPivotX(0.0f);
+                    findRv.setVisibility(View.GONE);
+                    mClearEditText.setScaleX(0.9f);//收缩
+                    mClearEditText.setPivotX(0.0f);//以x轴转动
                     searchIv.setVisibility(View.GONE);
 
                     tvSet.playTogether(ObjectAnimator.ofFloat(findSearchTv, "alpha", 0f, 1f),
                             ObjectAnimator.ofFloat(target, "translationX", findSearchTv.getTranslationX(), 0.0f));
-
-//                    ObjectAnimator.ofFloat(findSearchTv,View.TRANSLATION_X,300,0.6f)
+                    // 取消键的出现操作
                     findSearchTv.setVisibility(View.VISIBLE);
                     findSearchTv.setTextColor(Color.WHITE);
+
                     mLinearLayout.setVisibility(View.VISIBLE);
                     tvSet.setTarget(findSearchTv);
                     tvSet.setDuration(200);
                     tvSet.start();
-                    mClearEditText.setFocusable(true);
+                    //此时et可打字
                     mClearEditText.setEnabled(true);
-//                    mClearEditText.requestFocus();
-
-                    InputMethodManager imm = (InputMethodManager) mClearEditText.getContext().getSystemService(mContext.INPUT_METHOD_SERVICE);
+                    mClearEditText.setFocusable(true);
+                    mClearEditText.setFocusableInTouchMode(true);
+                    InputMethodManager imm = (InputMethodManager) mClearEditText.getContext().getSystemService(MyApp.getContext().INPUT_METHOD_SERVICE);
                     imm.toggleSoftInput(0, InputMethodManager.SHOW_FORCED);
 
+                    mClearEditText.setSelection(mClearEditText.getText().length());
+                    mClearEditText.setImeOptions(EditorInfo.IME_ACTION_SEND);// 软键盘回车搜索
+
+                    mClearEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                        @Override
+                        public boolean onEditorAction(TextView textView, int actionId, KeyEvent event) {
+                            // 当回车键按下时
+                            if (actionId==EditorInfo.IME_ACTION_SEND ||(event!=null&&event.getKeyCode()== KeyEvent.KEYCODE_ENTER))
+
+                            {
+                                Toast.makeText(mContext, mClearEditText.getText().toString(), Toast.LENGTH_SHORT).show();
+                                return true;
+
+                            }
+                            return false;
+                        }
+                    });
                     isNext = true;
-                } else {
-
-//                    findRv.setVisibility(View.VISIBLE);
-//                    testTv.setVisibility(View.GONE);
-//                    enlarge();
-//
-//
-//                    findSearchTv.setVisibility(View.GONE);
-
-//                    mClearEditText.
                 }
                 break;
             case R.id.find_search_tv:
@@ -320,15 +322,19 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
                 enlarge();
                 findSearchTv.setVisibility(View.GONE);
                 mLinearLayout.setVisibility(View.GONE);
-                isNext = false;
+                mClearEditText.setFocusable(false);
+                mClearEditText.setFocusableInTouchMode(false);
 
                 InputMethodManager imm = (InputMethodManager) mClearEditText.getContext().getSystemService(mContext.INPUT_METHOD_SERVICE);
                 imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
                 String a = mClearEditText.getText().toString();
-                if (!a.isEmpty()){
-                    String b = a.replace(a,"");
+                if (!a.isEmpty()) {
+                    String b = a.replace(a, "");
                     mClearEditText.setText(b);
+
                 }
+
+                isNext = false;
                 break;
         }
     }
