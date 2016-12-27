@@ -26,6 +26,7 @@ import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
  * Created by qianggedemac on 16/12/22.
  */
 
+
 public class WaitFragmentAdapter extends BaseAdapter implements StickyListHeadersAdapter {
     @Override
     public View getHeaderView(int position, View convertView, ViewGroup parent) {
@@ -56,6 +57,7 @@ public class WaitFragmentAdapter extends BaseAdapter implements StickyListHeader
     public View getView(int i, View view, ViewGroup viewGroup) {
         return null;
     }
+
 //    private Context mContext;
 //
 //    private RecommedBean mRecommedBean;
@@ -85,12 +87,8 @@ public class WaitFragmentAdapter extends BaseAdapter implements StickyListHeader
 //    public WaitFragmentAdapter(Context context) {
 //        mContext = context;
 //    }
-//
-//
-//
-//
-//    public void setNearBean(NearBean1 nearBean) {
-//
+
+
 //        mNearBean = nearBean;
 //        Log.d("数据", "mNearBean.getData().getComing().size():" + mNearBean.getData().getComing().size());
 //        notifyDataSetChanged();
@@ -107,14 +105,12 @@ public class WaitFragmentAdapter extends BaseAdapter implements StickyListHeader
 //
 //    @Override
 //    public long getHeaderId(int position) {
-//
-//        if (position == 0) {
-//
+
 //
 //
 //
 //        if (position == 0){
-//
+
 //            return 1000;
 //        } else if (position == 1) {
 //            return 999;
@@ -132,28 +128,27 @@ public class WaitFragmentAdapter extends BaseAdapter implements StickyListHeader
 //            Log.d("日期", "l:" + l);
 //            return Long.parseLong(dayWeek);
 //        }
-//<<<<<<< HEAD
-//
-//
-//=======
-//>>>>>>> 5edae0c017c30e09528f6574e28f0add9bb6d914
+
 //    }
 //
 //    @Override
 //    public int getCount() {
 //        return mNearBean.getData().getComing().size();
 //    }
-//
-//    @Override
-//    public Object getItem(int i) {
+
 //
 //        return mNearBean.getData().getComing().get(i);
 //    }
 //
 //    @Override
 //    public long getItemId(int i) {
+
 //
+//        return mNearBean.getData().getComing().get(i);
+//    }
 //
+//    @Override
+//    public long getItemId(int i) {
 //        return i;
 //
 //    }
