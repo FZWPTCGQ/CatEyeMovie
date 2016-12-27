@@ -75,7 +75,7 @@ public class CinemaFragment extends Fragment {
                     markerOptions.position(new LatLng(lat,lon));
                     markerOptions.title("当前位置");
                     markerOptions.visible(true);
-                    BitmapDescriptor bitmapDescriptor = BitmapDescriptorFactory.fromBitmap(BitmapFactory.decodeResource(getResources(),R.mipmap.ic_launcher));
+                    BitmapDescriptor bitmapDescriptor = BitmapDescriptorFactory.fromBitmap(BitmapFactory.decodeResource(getResources(),R.mipmap.xe));
                     markerOptions.icon(bitmapDescriptor);
                     mAMap.addMarker(markerOptions);
                 } else {
