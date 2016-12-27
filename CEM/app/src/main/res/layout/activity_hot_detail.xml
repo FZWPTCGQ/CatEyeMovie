@@ -1,22 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_hot_detail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.qianggedemac.cem.activity.HotDetailActivity">
-    <TextView
-        android:id="@+id/hot_detail_activity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-    />
-    <Button
-        android:id="@+id/activity_hot_detail_btn"
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/bigRed"
-        android:text="立即购票"
-        android:textColor="#ffffff"/>
+        android:layout_height="match_parent">
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <WebView
+                    android:id="@+id/hot_detail_activity_webView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                />
+
+
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_behavior"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/bigRed"
+            app:layout_behavior="com.example.qianggedemac.cem.activity.ToolbarAlphaBehavior"
+        >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/adq"
+                android:layout_marginRight="@dimen/fifteen"
+            />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/fifteen"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="摆渡人"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="摆渡人"/>
+            </LinearLayout>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ng"
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/fifteen"
+            />
+
+        </android.support.v7.widget.Toolbar>
+
+
+    </android.support.design.widget.CoordinatorLayout>
+
+
+    <LinearLayout android:layout_width="match_parent"
+
+                  android:layout_height="wrap_content"
+                  android:layout_alignParentBottom="true"
+                  android:background="@color/bigRed"
+                  android:orientation="horizontal">
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:src="@mipmap/a4y"
+        />
+        <Button
+            android:id="@+id/activity_hot_detail_btn"
+            android:layout_width="@dimen/zero"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/bigRed"
+            android:text="立即购票"
+            android:textColor="#ffffff"/>
+    </LinearLayout>
+
+
 </RelativeLayout>
