@@ -3,7 +3,9 @@ package com.example.qianggedemac.cem.find;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.ImageFormat;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -66,6 +68,7 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
 
     private RecyclerView mRecyclerView;
     private FindSearchAdapter mFindSearchAdapter;
+    private StringBuilder mStringBuilder;
 
     @Override
     protected int setLayout() {
@@ -74,6 +77,7 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     protected void initView(View view) {
+       // mStringBuilder = new StringBuilder(UrlTools.SEARCH_KEY);
         loadingImg = (ImageView) view.findViewById(R.id.loading_img);
         loadingBefore = (ImageView) view.findViewById(R.id.loading_before);
         findRv = (PullLoadMoreRecyclerView) view.findViewById(R.id.find_pull_rv);
@@ -115,8 +119,8 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
         String content = mClearEditText.getText().toString();
 
         //int a = UrlTools.SEARCH_KEY.indexOf("参数",0);
-        String newUrl = UrlTools.SEARCH_KEY.replace("参数", content);
-        Log.d("网址", newUrl);
+      //  String newUrl = UrlTools.SEARCH_KEY.replace("参数", content);
+       // Log.d("网址", newUrl);
 
     }
 
@@ -306,6 +310,19 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
                             if (actionId==EditorInfo.IME_ACTION_SEND ||(event!=null&&event.getKeyCode()== KeyEvent.KEYCODE_ENTER))
 
                             {
+
+
+                                String content = mClearEditText.getText().toString();
+//                                int a = mStringBuilder.indexOf("参数",0);
+//                                String newUrl = mStringBuilder.replace(a,a+2,content).toString();
+                               // Log.d("爱过等各大", newUrl);
+                                if (!content.isEmpty()){
+                                    Intent intent = new Intent(MyApp.getContext(),SearchDetailActivity.class);
+                                    String newUrl = UrlTools.SEARCH_KEY_BEFORE + content + UrlTools.SEARCH_KEY_AFTER;
+                                    intent.putExtra("url",newUrl);
+                                    startActivity(intent);
+                                }
+
                                 Toast.makeText(mContext, mClearEditText.getText().toString(), Toast.LENGTH_SHORT).show();
                                 return true;
 

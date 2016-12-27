@@ -14,5 +14,6 @@
     <color name="textView">#d9d0d2</color>
     <color name="btnSmall">#ffcc80</color>
     <color name="backgroundOne">#e2ddde</color>
+    <color name="backgroundBigHui">#cecdcd</color>
 
 </resources>

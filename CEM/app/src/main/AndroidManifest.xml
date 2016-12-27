@@ -40,15 +40,16 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
-
-
         <activity android:name=".activity.HotDetailActivity"/>
+
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="8f6750aa3b3e09f35513e78b554961c7"/>
 
         <service android:name="com.amap.api.location.APSService"/>
+
+        <activity android:name=".find.SearchDetailActivity">
+        </activity>
     </application>
 
 </manifest>
