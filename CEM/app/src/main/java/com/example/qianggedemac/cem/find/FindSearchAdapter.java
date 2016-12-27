@@ -52,9 +52,9 @@ public class FindSearchAdapter extends RecyclerView.Adapter<CommonVH> {
             @Override
             public void onClick(View view) {
                 Toast.makeText(MyApp.getContext(), "点击了" + position, Toast.LENGTH_SHORT).show();
-                int p = holder.getLayoutPosition();
-                FindSearchBean.DataBean findSearchBean = mFindSearchBean.getData().get(position);
-                mOnItemClickListener.onMethodClick(p,findSearchBean);
+//                int p = holder.getLayoutPosition();
+//                FindSearchBean.DataBean findSearchBean = mFindSearchBean.getData().get(position);
+//                mOnItemClickListener.onMethodClick(p,findSearchBean);
 
             }
         });
