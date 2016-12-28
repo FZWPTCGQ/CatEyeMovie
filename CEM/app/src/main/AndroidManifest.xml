@@ -16,6 +16,15 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
     <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
     <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:name=".tool.myapp.MyApp"
@@ -49,6 +58,16 @@
         <service android:name="com.amap.api.location.APSService"/>
 
         <activity android:name=".find.SearchDetailActivity">
+        </activity>
+        <activity android:name=".mine.QrCodeActivity">
+        </activity>
+        <activity android:name=".mine.qrcode.FabCreateActivity">
+        </activity>
+        <activity android:name=".mine.qrcode.FabSelfActivity">
+        </activity>
+        <activity android:name=".mine.qrcode.FabPicActivity">
+        </activity>
+        <activity android:name=".mine.qrcode.FabScanActivity">
         </activity>
     </application>
 

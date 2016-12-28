@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_qr_code"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#a5ea60"
+    tools:context="com.example.qianggedemac.cem.mine.QrCodeActivity">
+
+    <!--<com.example.qianggedemac.cem.view.ViewFinderView-->
+        <!--android:id="@+id/viewfinder_view"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"/>-->
+
+
+    <!--<FrameLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"/>-->
+
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/floating_action_menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        fab:menu_labels_ellipsize="end"
+        fab:menu_labels_singleLine="true"
+        fab:menu_backgroundColor="@color/transparent"
+        fab:menu_openDirection="up"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"><!--   fab:menu_icon="@drawable/actionbar_icon_add" #ccffffff-->
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/menu_item_fab_scan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/menu_font_size"
+            fab:fab_size="mini"
+            fab:fab_label="扫描" />
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/menu_item_fab_pic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/menu_alert"
+            fab:fab_size="mini"
+            fab:fab_label="图片解析" />
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/menu_item_fab_self"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/menu_to_desktop"
+            fab:fab_size="mini"
+            fab:fab_label="自制扫描" />
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/menu_item_fab_create"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/menu_share"
+            fab:fab_size="mini"
+            fab:fab_label="生成二维码" />
+
+    </com.github.clans.fab.FloatingActionMenu>
+
+</RelativeLayout>
