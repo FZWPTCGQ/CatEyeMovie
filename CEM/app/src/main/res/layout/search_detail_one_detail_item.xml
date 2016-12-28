@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+>
+    <ImageView
+        android:textColor="#000000"
+        android:id="@+id/search_detail_one_detail_item_img_iv"
+        android:layout_width="@dimen/eighty"
+        android:layout_height="@dimen/oneHundredTwenty"
+        android:layout_margin="@dimen/fifteen"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/eighty"
+        android:layout_alignTop="@id/search_detail_one_detail_item_img_iv"
+        android:layout_toRightOf="@+id/search_detail_one_detail_item_img_iv"
+        android:orientation="vertical">
+        <TextView
+            android:textColor="#000000"
+            android:id="@+id/search_detail_one_detail_item_nm_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="摆渡人"/>
+        <TextView
+            android:textColor="#000000"
+            android:id="@+id/search_detail_one_detail_item_enm_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="See You Tommorrow"
+            android:layout_marginTop="@dimen/marginFive"
+        />
+        <TextView
+            android:textColor="#000000"
+            android:id="@+id/search_detail_one_detail_item_cat_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="喜剧,爱情"
+        android:layout_margin="@dimen/marginFive"/>
+        <TextView
+            android:textColor="#000000"
+            android:id="@+id/search_detail_one_detail_item_pubDesc_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+
+</RelativeLayout>
