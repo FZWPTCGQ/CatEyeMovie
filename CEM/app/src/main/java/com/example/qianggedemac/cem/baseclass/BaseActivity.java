@@ -5,6 +5,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.uuzuche.lib_zxing.activity.ZXingLibrary;
+
 /**
  * Created by qianggedemac on 16/12/19.
  */
