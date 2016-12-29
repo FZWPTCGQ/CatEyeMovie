@@ -8,12 +8,10 @@
     android:orientation="vertical"
     tools:context="com.example.qianggedemac.cem.find.SearchDetailActivity">
 
-        <com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/search_detail_activity_rv"/>
-
-
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/search_detail_activity_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 
 </LinearLayout>

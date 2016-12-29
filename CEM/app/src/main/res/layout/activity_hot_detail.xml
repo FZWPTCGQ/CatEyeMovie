@@ -82,6 +82,7 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:src="@mipmap/a4y"
+            android:id="@+id/hot_detail_activity_like_iv"
         />
         <Button
             android:id="@+id/activity_hot_detail_btn"

@@ -4,13 +4,9 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/one"
-        android:background="@color/backgroundHui"
-    />
-    <ListView
-        android:id="@+id/search_layout_one_item_lv"
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/search_layout_one_item_rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

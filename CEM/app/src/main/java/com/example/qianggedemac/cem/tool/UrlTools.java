@@ -48,7 +48,9 @@ public class UrlTools {
     // 搜索框
     public static final String SEARCH_KEY_BEFORE = "http://api.maoyan.com/mmdb/search/integrated/keyword/list.json?almtype=1&keyword=";
     public static final String SEARCH_KEY_AFTER = "&stype=-1&refer=1&iscorrected=false&limit=10&offset=0&token=&utm_campaign=AmovieBmovieCD-1&movieBundleVersion=7701&utm_source=xiaomi&utm_medium=android&utm_term=7.7.0&utm_content=860887036129012&ci=65&net=255&dModel=Redmi%20Note%203&uuid=89B38BD34B3C4B2B83BA7D389BEB138BD05D8DE7D11FD20C6BAAC72F1870761D&lat=38.883424&lng=121.544714&__reqTraceID=7654128655162426328&__skck=6a375bce8c66a0dc293860dfa83833ef&__skts=1482743413823&__skua=32bcf146c756ecefe7535b95816908e3&__skno=c8d90383-6a95-4f6d-a152-6843c4561c63&__skcy=kfQthRGKc7jDUBTvCzquaanxBOs%3D";
-
+    //搜索页面刷新
+    public static final String SEARCH_DETAIL_CENTER = "&stype=-1&refer=1&iscorrected=false&limit=10&offset=";
+    public static final String SEARCH_DETAIL_AFTER = "&token=&utm_campaign=AmovieBmovieCD-1&movieBundleVersion=7701&utm_source=xiaomi&utm_medium=android&utm_term=7.7.0&utm_content=860887036129012&ci=65&net=255&dModel=Redmi%20Note%203&uuid=89B38BD34B3C4B2B83BA7D389BEB138BD05D8DE7D11FD20C6BAAC72F1870761D&lat=38.883424&lng=121.544714&__reqTraceID=7654128655162426328&__skck=6a375bce8c66a0dc293860dfa83833ef&__skts=1482743413823&__skua=32bcf146c756ecefe7535b95816908e3&__skno=c8d90383-6a95-4f6d-a152-6843c4561c63&__skcy=kfQthRGKc7jDUBTvCzquaanxBOs%3D";
 
 
 }

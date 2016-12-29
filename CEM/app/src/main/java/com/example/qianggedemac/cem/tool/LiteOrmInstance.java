@@ -28,6 +28,7 @@ public class LiteOrmInstance {
     }
     private LiteOrmInstance() {
         mLiteOrm = LiteOrm.newSingleInstance(MyApp.getContext(),"MyApp.db");
+
     }
     /**
      * 插入一条数据

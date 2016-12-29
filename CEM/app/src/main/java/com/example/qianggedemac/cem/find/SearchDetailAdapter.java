@@ -1,68 +1,80 @@
 package com.example.qianggedemac.cem.find;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.qianggedemac.cem.R;
 import com.example.qianggedemac.cem.tool.CommonVH;
+import com.example.qianggedemac.cem.tool.myapp.MyApp;
 
 /**
  * Created by qianggedemac on 16/12/27.
  */
 
-public class SearchDetailAdapter extends RecyclerView.Adapter<CommonVH> {
-    private SearchDetailBean mSearchDetailBean;
-    private int layoutParams[] = {R.layout.search_layout_one_item,R.layout.search_layout_two_item};
-    private static final int TYPE_ZERO = 0;
-    private static final int TYPE_ONE = 1;
-    private ListView mListViewZero;
-    private ListView mListViewOne;
+public class SearchDetailAdapter extends BaseAdapter {
+    private SearchHeaderBean mSearchHeaderBean;
+    private Context mContext;
 
+    public SearchDetailAdapter(Context context) {
+        mContext = context;
+    }
+    public void clear(){
+        mSearchHeaderBean.getData().get(1).getList().clear();
+    }
 
-    public void setSearchDetailBean(SearchDetailBean searchDetailBean) {
-        mSearchDetailBean = searchDetailBean;
+    public void setSearchHeaderBean(SearchHeaderBean searchHeaderBean) {
+        mSearchHeaderBean = searchHeaderBean;
+        notifyDataSetChanged();
+    }
+    public void addSearchHeaderBean(SearchHeaderBean searchHeaderBean){
+        mSearchHeaderBean.getData().get(1).getList().addAll(searchHeaderBean.getData().get(0).getList());
         notifyDataSetChanged();
     }
 
     @Override
-    public CommonVH onCreateViewHolder(ViewGroup parent, int viewType) {
-        return CommonVH.getViewHolder(parent,layoutParams[viewType]);
+    public int getCount() {
+        return mSearchHeaderBean.getData().get(1).getList().size();
     }
 
     @Override
-    public void onBindViewHolder(CommonVH holder, int position) {
-        int type = getItemViewType(position);
-        switch (type){
-            case TYPE_ZERO:
-                mListViewZero = holder.getView(R.id.search_layout_one_item_lv);
-                SearchDetailOneAdapter searchDetailOneAdapter = new SearchDetailOneAdapter();
-                searchDetailOneAdapter.setSearchDetailBean(mSearchDetailBean);
-                Log.d("SearchDetailAdapter", "mSearchDetailBean.getData().get(0).getList().size():" + mSearchDetailBean.getData().get(0).getList().size());
-                mListViewZero.setAdapter(searchDetailOneAdapter);
-                break;
-            case TYPE_ONE:
-                mListViewOne = holder.getView(R.id.search_layout_two_item_lv);
-                SearchDetailTwoAdapter searchDetailTwoAdapter = new SearchDetailTwoAdapter();
-                searchDetailTwoAdapter.setSearchDetailBean(mSearchDetailBean);
-             //   Log.d("SearchDetailAdapter", "mSearchDetailBean.getData().get(1).getLists().size():" + mSearchDetailBean.getData().get(1).getLists().size());
-                mListViewOne.setAdapter(searchDetailTwoAdapter);
-                break;
-        }
+    public Object getItem(int i) {
+        return mSearchHeaderBean.getData().get(1).getList().get(i);
     }
 
     @Override
-    public int getItemViewType(int position) {
-        if (position == 0){
-            return TYPE_ZERO;
+    public long getItemId(int i) {
+        return i;
+    }
+
+    @Override
+    public View getView(int i, View view, ViewGroup viewGroup) {
+       SDViewHolder sdViewHolder = null;
+        if (view == null){
+            view = LayoutInflater.from(MyApp.getContext()).inflate(R.layout.search_detail_two_detail_item,viewGroup,false);
+            sdViewHolder = new SDViewHolder(view);
+            view.setTag(sdViewHolder);
         }else{
-            return TYPE_ONE;
+            sdViewHolder = (SDViewHolder) view.getTag();
         }
+        sdViewHolder.mTextViewTilte.setText(mSearchHeaderBean.getData().get(1).getList().get(i).getTitle());
+        sdViewHolder.mTextViewVideoCount.setText(mSearchHeaderBean.getData().get(1).getList().get(i).getViewCount() + "");
+        sdViewHolder.mTextViewCommentCount.setText(mSearchHeaderBean.getData().get(1).getList().get(i).getCommentCount() + "");
+        return view;
     }
+    public class SDViewHolder{
+        TextView mTextViewTilte,mTextViewVideoCount,mTextViewCommentCount;
+        public SDViewHolder(View view){
+            mTextViewTilte = (TextView)view.findViewById(R.id.search_detail_two_detail_item_title_tv);
+            mTextViewVideoCount = (TextView)view.findViewById(R.id.search_detail_two_detail_item_liulan_tv);
+            mTextViewCommentCount = (TextView)view.findViewById(R.id.search_detail_two_detail_item_pinglun_tv);
 
-    @Override
-    public int getItemCount() {
-        return 3;
+        }
     }
 }
