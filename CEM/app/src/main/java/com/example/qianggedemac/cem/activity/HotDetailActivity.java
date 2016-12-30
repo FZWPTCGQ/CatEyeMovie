@@ -48,6 +48,23 @@ public class HotDetailActivity extends BaseActivity {
             }
 
             @Override
+            public void onPageFinished(WebView view, String url) {
+                String fun="javascript:function getClass(parent,sClass) { var aEle=parent.getElementsByTagName('div'); var aResult=[]; var i=0; for(i<0;i<aEle.length;i++) { if(aEle[i].className==sClass) { aResult.push(aEle[i]); } }; return aResult; } ";
+
+                view.loadUrl(fun);
+
+                String fun2="javascript:function hideOther() {getClass(document,'navload " +
+                        "clearfix')[0].style.display='none';getClass(document,'navbar')[0].style.display='none';}";
+
+                view.loadUrl(fun2);
+
+                view.loadUrl("javascript:hideOther();");
+
+
+                super.onPageFinished(view, url);
+            }
+
+            @Override
             public boolean shouldOverrideKeyEvent(WebView view, KeyEvent event) {
                 return false;
             }

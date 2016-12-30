@@ -49,6 +49,16 @@ public class UrlTools {
     public static final String SEARCH_KEY_BEFORE = "http://api.maoyan.com/mmdb/search/integrated/keyword/list.json?almtype=1&keyword=";
     public static final String SEARCH_KEY_AFTER = "&stype=-1&refer=1&iscorrected=false&limit=10&offset=0&token=&utm_campaign=AmovieBmovieCD-1&movieBundleVersion=7701&utm_source=xiaomi&utm_medium=android&utm_term=7.7.0&utm_content=860887036129012&ci=65&net=255&dModel=Redmi%20Note%203&uuid=89B38BD34B3C4B2B83BA7D389BEB138BD05D8DE7D11FD20C6BAAC72F1870761D&lat=38.883424&lng=121.544714&__reqTraceID=7654128655162426328&__skck=6a375bce8c66a0dc293860dfa83833ef&__skts=1482743413823&__skua=32bcf146c756ecefe7535b95816908e3&__skno=c8d90383-6a95-4f6d-a152-6843c4561c63&__skcy=kfQthRGKc7jDUBTvCzquaanxBOs%3D";
 
-
-
+    //发现 -> 今天 -> 点击详情
+    public static final String FIND_TODAY_DETAIL = "http://m.maoyan.com/information/";
+    //发现 -> 今天 -> 点击详情(另一种)
+    public static final String FIND_TODAY_DETAIL_ELSE = "http://m.maoyan.com/topic/";
+    //发现 ->今日TOP10
+    public static final String FIND_TOP10 = "http://m.maoyan.com/information?_v_=yes&groupId=1481354&pageType=1&title=今日TOP10";
+    //发现 ->影视快讯
+    public static final String FIND_FAST_MSG = "http://m.maoyan.com/information?_v_=yes";
+    //发现 ->周边商城
+    public static final String FIND_STORE = "http://http://m.maoyan.com/store?_v_=yes";
+    //发现 ->实时票房
+    public static final String FIND_NOW = "http://piaofang.maoyan.com/?f=android&userid=-1";
 }
