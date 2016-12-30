@@ -29,9 +29,13 @@ public class FindRvAdapter extends RecyclerView.Adapter<FindRvAdapter.FindViewHo
     private FindTopBean mFindTopBean;
     private FindTodayBean mFindTodayBean;
     private Context mContext;
-    private AnimatorSet itemAnim2; // item的动画
-    private AnimatorSet itemAnim3; // item的动画
     View target;
+
+    private OnFindClickListener mOnFindClickListener;
+
+    public void setOnFindClickListener(OnFindClickListener onFindClickListener) {
+        mOnFindClickListener = onFindClickListener;
+    }
 
     public FindRvAdapter(Context context) {
         mContext = context;
@@ -99,73 +103,48 @@ public class FindRvAdapter extends RecyclerView.Adapter<FindRvAdapter.FindViewHo
 
         target = holder.itemView;
 
-
-        switch (type) {
-
-            case 1:
-                if (mFindTopBean != null) {
-
-                }
-                break;
-
-            case 2:
-                if (mFindTodayBean != null && mFindTopBean != null) {
-                    itemAnim2 = new AnimatorSet();
-//                    -target.getMeasuredWidth()
-                    itemAnim2.playTogether(ObjectAnimator.ofFloat(target, "translationX", -300f, 0.0f),
-                            ObjectAnimator.ofFloat(target, "alpha", target.getAlpha(), 1.0f));
-                    itemAnim2.setTarget(target);
-                    itemAnim2.setDuration(300);
-                    itemAnim2.start();
-                }
-                break;
-            case 3:
-                if (mFindTodayBean != null && mFindTopBean != null) {
-                    itemAnim3 = new AnimatorSet();
-                    itemAnim3.playTogether(ObjectAnimator.ofFloat(target, "translationX", +300f, 0.0f),
-                            ObjectAnimator.ofFloat(target, "alpha", target.getAlpha(), 1.0f));
-                    itemAnim3.setTarget(target);
-                    itemAnim3.setDuration(300);
-                    itemAnim3.start();
-                }
-                break;
-            case 4:
-                if (mFindTodayBean != null && mFindTopBean != null) {
-                    itemAnim3 = new AnimatorSet();
-                    itemAnim3.playTogether(ObjectAnimator.ofFloat(target, "translationY", -500f, 0.0f),
-                            ObjectAnimator.ofFloat(target, "alpha", target.getAlpha(), 1.0f));
-                    itemAnim3.setTarget(target);
-                    itemAnim3.setDuration(300);
-                    itemAnim3.start();
-                }
-                break;
-            default:
-                if (mFindTodayBean != null && mFindTopBean != null) {
-                    itemAnim3 = new AnimatorSet();
-                    itemAnim3.playTogether(ObjectAnimator.ofFloat(target, "translationY", 800f, 0.0f),
-                            ObjectAnimator.ofFloat(target, "alpha", target.getAlpha(), 1.0f));
-                    itemAnim3.setTarget(target);
-                    itemAnim3.setDuration(300);
-                    itemAnim3.start();
-                }
-                break;
-        }
-
         if (type != 1) {
             position = position - 1;
         }
         switch (type) {
-
+//四个图标
             case 1:
                 if (mFindTopBean != null) {
                     Glide.with(mContext).load(mFindTopBean.getData().get(0).getImage().getUrl()).into(holder.findHeaderTop);
                     Glide.with(mContext).load(mFindTopBean.getData().get(1).getImage().getUrl()).into(holder.findHeaderNew);
                     Glide.with(mContext).load(mFindTopBean.getData().get(2).getImage().getUrl()).into(holder.findHeaderStore);
                     Glide.with(mContext).load(mFindTopBean.getData().get(3).getImage().getUrl()).into(holder.findHeaderHouse);
+//
+                    holder.findHeaderTop.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            mOnFindClickListener.findTopClick(mFindTopBean.getData().get(0).getTitle());
+                        }
+                    });
+                    holder.findHeaderNew.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            mOnFindClickListener.findTopClick(mFindTopBean.getData().get(1).getTitle());
+                        }
+                    });
+                    holder.findHeaderStore.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Log.d("FindRvAdapter", mFindTopBean.getData().get(2).getTitle());
+                            mOnFindClickListener.findTopClick(mFindTopBean.getData().get(2).getTitle());
+
+                        }
+                    });
+                    holder.findHeaderHouse.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            mOnFindClickListener.findTopClick(mFindTopBean.getData().get(3).getTitle());
+                        }
+                    });
 
                 }
                 break;
-
+// 一个图的
             case 2:
                 if (mFindTodayBean != null && mFindTopBean != null) {
                     holder.findOneCommentCountTv.setText(String.valueOf(mFindTodayBean.getData().getFeeds().get(position).getCommentCount()));
@@ -177,14 +156,32 @@ public class FindRvAdapter extends RecyclerView.Adapter<FindRvAdapter.FindViewHo
                     holder.findOneTitleTv.setText(mFindTodayBean.getData().getFeeds().get(position).getTitle());
                     holder.findOneViewCountTv.setText(String.valueOf(mFindTodayBean.getData().getFeeds().get(position).getViewCount()));
                     Glide.with(mContext).load(mFindTodayBean.getData().getFeeds().get(position).getImages().get(0).getUrl()).into(holder.findOneImage);
+                    final int detailPos = position;
+                    holder.findOneItemRL.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (mOnFindClickListener != null && mFindTodayBean.getData().getFeeds().get(detailPos).getUser() != null) {
+                                mOnFindClickListener.findClick(
+                                        mFindTodayBean.getData().getFeeds().get(detailPos).getImages().get(0).getTargetId(),
+                                        mFindTodayBean.getData().getFeeds().get(detailPos).getFeedType(),
+                                        mFindTodayBean.getData().getFeeds().get(detailPos).getUser().getNickName(),
+                                        mFindTodayBean.getData().getFeeds().get(detailPos).getImages().get(0).getUrl(),
+                                        mFindTodayBean.getData().getFeeds().get(detailPos).getTitle());
+                            }
+
+                        }
+                    });
 
                 }
                 break;
+            // 三个图的
             case 3:
                 if (mFindTodayBean != null && mFindTopBean != null) {
                     holder.findThreeCommentCountTv.setText(String.valueOf(mFindTodayBean.getData().getFeeds().get(position).getCommentCount()));
                     if (mFindTodayBean.getData().getFeeds().get(position).getUser() != null) {
                         holder.findThreeNickNameTv.setText(mFindTodayBean.getData().getFeeds().get(position).getUser().getNickName());
+                    }else {
+                        holder.findThreeNickNameTv.setText("1小时前");
                     }
                     holder.findThreeTitleTv.setText(mFindTodayBean.getData().getFeeds().get(position).getTitle());
                     holder.findThreeViewCountTv.setText(String.valueOf(mFindTodayBean.getData().getFeeds().get(position).getViewCount()));
@@ -192,8 +189,24 @@ public class FindRvAdapter extends RecyclerView.Adapter<FindRvAdapter.FindViewHo
                     Glide.with(mContext).load(mFindTodayBean.getData().getFeeds().get(position).getImages().get(1).getUrl()).into(holder.findThreeImagesTwoImg);
                     Glide.with(mContext).load(mFindTodayBean.getData().getFeeds().get(position).getImages().get(2).getUrl()).into(holder.findThreeImagesThreeImg);
 
+                    final int detailPos = position;
+                    holder.findThreeItemLl.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (mOnFindClickListener != null && mFindTodayBean.getData().getFeeds().get(detailPos).getUser() != null) {
+                                mOnFindClickListener.findClick(
+                                        mFindTodayBean.getData().getFeeds().get(detailPos).getImages().get(0).getTargetId(),
+                                        mFindTodayBean.getData().getFeeds().get(detailPos).getFeedType(),
+                                        mFindTodayBean.getData().getFeeds().get(detailPos).getUser().getNickName(),
+                                        mFindTodayBean.getData().getFeeds().get(detailPos).getImages().get(0).getUrl(),
+                                        mFindTodayBean.getData().getFeeds().get(detailPos).getTitle());
+                            }
+
+                        }
+                    });
                 }
                 break;
+            // 三个不同图的
             case 4:
                 if (mFindTodayBean != null && mFindTopBean != null) {
                     holder.findThreeMoreCommentCountTv.setText(String.valueOf(mFindTodayBean.getData().getFeeds().get(position).getCommentCount()));
@@ -208,8 +221,27 @@ public class FindRvAdapter extends RecyclerView.Adapter<FindRvAdapter.FindViewHo
 //                    }else {
 //                        holder.findThreeMoreImagesThreeImg.setImageResource(R.mipmap.icon);
 //                    }
+
+                    final int detailPos = position;
+                    holder.findThreeMoreItemRl.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (mOnFindClickListener != null && mFindTodayBean.getData().getFeeds().get(detailPos).getUser() != null) {
+                                mOnFindClickListener.findClick(
+                                        mFindTodayBean.getData().getFeeds().get(detailPos).getImages().get(0).getTargetId(),
+                                        mFindTodayBean.getData().getFeeds().get(detailPos).getFeedType(),
+                                        mFindTodayBean.getData().getFeeds().get(detailPos).getUser().getNickName(),
+                                        mFindTodayBean.getData().getFeeds().get(detailPos).getImages().get(0).getUrl(),
+                                        mFindTodayBean.getData().getFeeds().get(detailPos).getTitle());
+                            }
+
+                        }
+                    });
+
+
                 }
                 break;
+            // 另外一个图
             default:
                 if (mFindTodayBean != null && mFindTopBean != null) {
 
@@ -220,8 +252,25 @@ public class FindRvAdapter extends RecyclerView.Adapter<FindRvAdapter.FindViewHo
                     } else {
                         holder.findSevenNickNameTv.setText("");
                     }
-                   Glide.with(mContext).load(mFindTodayBean.getData().getFeeds().
+                    Glide.with(mContext).load(mFindTodayBean.getData().getFeeds().
                             get(position).getImages().get(0).getUrl()).into(holder.findSevenIv);
+
+                    final int detailPos = position;
+                    holder.findSevenItemLl.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (mOnFindClickListener != null && mFindTodayBean.getData().getFeeds().get(detailPos).getUser() != null) {
+                                mOnFindClickListener.findClick(
+                                        mFindTodayBean.getData().getFeeds().get(detailPos).getImages().get(0).getTargetId(),
+                                        mFindTodayBean.getData().getFeeds().get(detailPos).getFeedType(),
+                                        mFindTodayBean.getData().getFeeds().get(detailPos).getUser().getNickName(),
+                                        mFindTodayBean.getData().getFeeds().get(detailPos).getImages().get(0).getUrl(),
+                                        mFindTodayBean.getData().getFeeds().get(detailPos).getTitle());
+                            }
+
+                        }
+                    });
+
 
                 }
                 break;
@@ -233,7 +282,7 @@ public class FindRvAdapter extends RecyclerView.Adapter<FindRvAdapter.FindViewHo
     public int getItemCount() {
         int num = 0;
         if (mFindTopBean != null) {
-            num += 1;
+            num += 1;// 四个图标
         }
         if (mFindTodayBean != null) {
             num += mFindTodayBean.getData().getFeeds().size();
@@ -318,8 +367,6 @@ public class FindRvAdapter extends RecyclerView.Adapter<FindRvAdapter.FindViewHo
             findSevenNickNameTv = (TextView) itemView.findViewById(R.id.find_seven_nick_name_tv);
         }
     }
-
-
 
 
 }

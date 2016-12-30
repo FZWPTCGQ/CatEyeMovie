@@ -69,6 +69,8 @@
         </activity>
         <activity android:name=".mine.qrcode.FabScanActivity">
         </activity>
+        <activity android:name=".find.FindDetailActivity">
+        </activity>
     </application>
 
 </manifest>

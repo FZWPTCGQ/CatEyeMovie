@@ -1,0 +1,213 @@
+package com.example.qianggedemac.cem.find;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.graphics.Bitmap;
+import android.net.http.SslError;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.KeyEvent;
+import android.view.View;
+import android.webkit.SslErrorHandler;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.example.qianggedemac.cem.R;
+import com.example.qianggedemac.cem.baseclass.BaseActivity;
+import com.example.qianggedemac.cem.tool.UrlTools;
+
+import java.net.URL;
+
+public class FindDetailActivity extends BaseActivity {
+
+    private WebView mWebView;
+    private Toolbar mToolbar;
+    private TextView mTextView;
+    private FindDetailBR mFindDetailBR;
+
+    private String mTitle;
+    private int mFeedType;
+    private int mTargetId;
+
+    private String name;
+    private String wvUrl;
+
+    private ImageView mReturnIv;
+
+    @Override
+    protected int setLayout() {
+        return R.layout.activity_find_detail;
+    }
+
+    @Override
+    protected void initViews() {
+//        mToolbar = (Toolbar) findViewById(R.id.toolbar_behavior);
+//        mToolbar.getBackground().setAlpha(0);//toolbar透明度初始化为0
+        mWebView = (WebView) findViewById(R.id.find_detail_wv);
+        mTextView = (TextView) findViewById(R.id.return_tv);
+        mReturnIv = (ImageView) findViewById(R.id.return_iv);
+        Intent intent = getIntent();
+        mTargetId = intent.getIntExtra("targetID", -1);
+        mFeedType = intent.getIntExtra("feedType", -1);
+        name = intent.getStringExtra("name");
+
+
+        if (mFeedType == 7) {
+            wvUrl = UrlTools.FIND_TODAY_DETAIL + mTargetId + "?_v_=yes";
+        } else if (mFeedType == 2 || mFeedType == 10) {
+            wvUrl = UrlTools.FIND_TODAY_DETAIL_ELSE + mTargetId + "?_v_=yes";
+        } else if (mFeedType == -1) {
+            Intent intent1 = getIntent();
+            mTitle = intent1.getStringExtra("title");
+
+            if (mTitle.equals("今日TOP10")) {
+                wvUrl = UrlTools.FIND_TOP10;
+                mTextView.setText(name);
+            } else if (mTitle.equals("影视快讯")) {
+                wvUrl = UrlTools.FIND_FAST_MSG;
+                mTextView.setText(name);
+            } else if (mTitle.equals("周边商城")) {
+                wvUrl = UrlTools.FIND_STORE;
+                mTextView.setText(name);
+            }else if (mTitle.equals("实时票房")) {
+                wvUrl = UrlTools.FIND_NOW;
+                mTextView.setText(name);
+            }
+
+        }
+
+        mFindDetailBR = new FindDetailBR();
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("findDetail");
+        registerReceiver(mFindDetailBR, intentFilter);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(mFindDetailBR);
+    }
+
+    @Override
+    protected void initDatas() {
+
+        mReturnIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        mWebView.loadUrl(wvUrl);
+        Log.d("FindDetailActivity", wvUrl);
+
+        mWebView.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                String fun="javascript:function getClass(parent,sClass)" +
+                        " { var aEle=parent.getElementsByTagName('div'); " +
+                        "var aResult=[]; var i=0; for(i<0;i<aEle.length;i++) { if(aEle[i].className==sClass) { aResult.push(aEle[i]); } }; return aResult; } ";
+
+                view.loadUrl(fun);
+                String fun2="javascript:function hideOther() {getClass(document,'navload " +
+                        "clearfix')[0].style.display='none';getClass(document,'navbar')[0].style.display='none';}";
+                view.loadUrl(fun2);
+
+                view.loadUrl("javascript:hideOther();");
+
+                super.onPageFinished(view, url);
+            }
+
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+
+                super.onPageStarted(view, url, favicon);
+            }
+
+            @Override
+            public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+                super.onReceivedSslError(view, handler, error);
+            }
+
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                return false;
+            }
+
+            @Override
+            public boolean shouldOverrideKeyEvent(WebView view, KeyEvent event) {
+                return false;
+            }
+        });
+        // 设置webview加载网页的属性 websettings
+        WebSettings set = mWebView.getSettings();
+//            artFastWv.loadUrl(url);
+        // 让WebView能够执行javaScript
+        set.setJavaScriptEnabled(true);
+        // 让JavaScript可以自动打开windows
+        set.setJavaScriptCanOpenWindowsAutomatically(true);
+
+        set.setAllowFileAccess(true);
+
+        // 设置缓存
+        set.setAppCacheEnabled(true);
+        // 设置缓存模式,一共有四种模式
+        set.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+        // 设置缓存路径
+//            set.setAppCachePath("");
+        // 支持缩放(适配到当前屏幕)
+        set.setSupportZoom(true);
+        // 将图片调整到合适的大小
+        set.setUseWideViewPort(true);
+        // 支持内容重新布局,一共有四种方式
+        // 默认的是NARROW_COLUMNS
+        set.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+        // 设置可以被显示的屏幕控制
+        set.setDisplayZoomControls(true);
+        // 设置默认字体大小
+        set.setDefaultFontSize(12);
+//        mTextView.setAlpha(0);
+//     mToolbar.setTitle("标题");
+//
+//    mToolbar.setSubtitle("子标题");
+
+    }
+
+    public class FindDetailBR extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+//            int param = intent.getIntExtra("param", 100);
+//            switch (param) {
+//                case 0:
+//                    mTargetId = intent.getIntExtra("targetID", -1);
+//                    mFeedType = intent.getIntExtra("feedType", -1);
+//                    mNickName = intent.getStringExtra("nickName");
+//                    mUrlImg = intent.getStringExtra("urlImg");
+//                    mMainTitle = intent.getStringExtra("title");
+//                    mTitle = intent.getStringExtra("Title");
+//
+//                    if (mFeedType == 7) {
+//                        wvUrl = UrlTools.FIND_TODAY_DETAIL + mTargetId + "?_v_=yes";
+//                    } else if (mFeedType == 2 || mFeedType == 10) {
+//                        wvUrl = UrlTools.FIND_TODAY_DETAIL_ELSE + mTargetId + "?_v_=yes";
+//                    } else if (mTitle.equals("今日TOP10")) {
+//                        wvUrl = UrlTools.FIND_TOP10;
+//                    } else if (mTitle.equals("实时票房")) {
+//                        wvUrl = UrlTools.FIND_NOW;
+//                    } else if (mTitle.equals("影视快讯")) {
+//                        wvUrl = UrlTools.FIND_FAST_MSG;
+//                    }
+//                    Log.d("FindDetailBR", wvUrl);
+//                    break;
+//            }
+        }
+    }
+}

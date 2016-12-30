@@ -44,7 +44,7 @@ import static android.widget.RelativeLayout.ALIGN_LEFT;
 /**
  * 发现界面
  */
-public class FindFragment extends BaseFragment implements View.OnClickListener {
+public class FindFragment extends BaseFragment implements View.OnClickListener, OnFindClickListener {
 
     private PullLoadMoreRecyclerView findRv;
     private FindRvAdapter mAdapter;
@@ -76,7 +76,7 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     protected void initView(View view) {
-       // mStringBuilder = new StringBuilder(UrlTools.SEARCH_KEY);
+        // mStringBuilder = new StringBuilder(UrlTools.SEARCH_KEY);
         loadingImg = (ImageView) view.findViewById(R.id.loading_img);
         loadingBefore = (ImageView) view.findViewById(R.id.loading_before);
         findRv = (PullLoadMoreRecyclerView) view.findViewById(R.id.find_pull_rv);
@@ -103,7 +103,6 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
             @Override
             public void onResponse(FindSearchBean bean) {
                 mFindSearchAdapter.setFindSearchBean(bean);
-                Log.d("数据", "bean.getData().size():" + bean.getData().size());
                 mRecyclerView.setAdapter(mFindSearchAdapter);
                 StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.HORIZONTAL);
                 mRecyclerView.setLayoutManager(manager);
@@ -118,8 +117,8 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
         String content = mClearEditText.getText().toString();
 
         //int a = UrlTools.SEARCH_KEY.indexOf("参数",0);
-      //  String newUrl = UrlTools.SEARCH_KEY.replace("参数", content);
-       // Log.d("网址", newUrl);
+        //  String newUrl = UrlTools.SEARCH_KEY.replace("参数", content);
+        // Log.d("网址", newUrl);
 
     }
 
@@ -133,7 +132,8 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
         pullToRefresh();
         // 点击事件
         setClick(this, searchRl, mClearEditText, findSearchTv);
-
+        // 点进详情
+        mAdapter.setOnFindClickListener(this);
     }
 
 
@@ -151,7 +151,6 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
                 startAnim();
                 initNetWork();
                 findRv.setPullLoadMoreCompleted();
-//                findRv.setFooterViewBackgroundColor(R.color.cardview_shadow_start_color);
             }
 
 
@@ -306,20 +305,21 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
                         @Override
                         public boolean onEditorAction(TextView textView, int actionId, KeyEvent event) {
                             // 当回车键按下时
-                            if (actionId==EditorInfo.IME_ACTION_SEND ||(event!=null&&event.getKeyCode()== KeyEvent.KEYCODE_ENTER))
-
-                            {
-
+                            if (actionId == EditorInfo.IME_ACTION_SEND || (event != null && event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
 
                                 String content = mClearEditText.getText().toString();
 //                                int a = mStringBuilder.indexOf("参数",0);
 //                                String newUrl = mStringBuilder.replace(a,a+2,content).toString();
-                               // Log.d("爱过等各大", newUrl);
-                                if (!content.isEmpty()){
-                                    Intent intent = new Intent(MyApp.getContext(),SearchDetailActivity.class);
+                                // Log.d("爱过等各大", newUrl);
+                                if (!content.isEmpty()) {
+                                    Intent intent = new Intent(MyApp.getContext(), SearchDetailActivity.class);
                                     String newUrl = UrlTools.SEARCH_KEY_BEFORE + content + UrlTools.SEARCH_KEY_AFTER;
+<<<<<<< HEAD
                                     intent.putExtra("url",newUrl);
                                     intent.putExtra("content",content);
+=======
+                                    intent.putExtra("url", newUrl);
+>>>>>>> fb174407109709617b7229bb7d36e3a05f00a25a
                                     startActivity(intent);
                                 }
 
@@ -367,4 +367,27 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
         searchSet.setDuration(200);
         searchSet.start();
     }
+
+    @Override
+    public void findTopClick(String name) {
+
+    Intent intent = new Intent(mContext,FindDetailActivity.class);
+    intent.putExtra("title",name);
+    mContext.startActivity(intent);
+    }
+
+    @Override
+    public void findClick(int targetID, int feedType, String nickName, String urlImg, String title) {
+
+        Intent intent = new Intent(mContext, FindDetailActivity.class);
+        intent.putExtra("targetID", targetID);
+        intent.putExtra("feedType", feedType);
+        intent.putExtra("nickName", nickName);
+        intent.putExtra("urlImg", urlImg);
+        intent.putExtra("title", title);
+
+        mContext.startActivity(intent);
+
+    }
+
 }
