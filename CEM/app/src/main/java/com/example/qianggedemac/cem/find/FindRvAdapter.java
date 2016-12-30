@@ -210,17 +210,20 @@ public class FindRvAdapter extends RecyclerView.Adapter<FindRvAdapter.FindViewHo
             case 4:
                 if (mFindTodayBean != null && mFindTopBean != null) {
                     holder.findThreeMoreCommentCountTv.setText(String.valueOf(mFindTodayBean.getData().getFeeds().get(position).getCommentCount()));
-                    holder.findThreeMoreNickNameTv.setText(mFindTodayBean.getData().getFeeds().get(position).getUser().getNickName());
+                    if (mFindTodayBean.getData().getFeeds().get(position).getUser() != null) {
+                        holder.findThreeMoreNickNameTv.setText(mFindTodayBean.getData().getFeeds().get(position).getUser().getNickName());
+                    }else {
+                        holder.findThreeMoreNickNameTv.setText("一小时前");
+                    }
                     holder.findThreeMoreTitleTv.setText(mFindTodayBean.getData().getFeeds().get(position).getTitle());
                     holder.findThreeMoreViewCountTv.setText(String.valueOf(mFindTodayBean.getData().getFeeds().get(position).getViewCount()));
                     Glide.with(mContext).load(mFindTodayBean.getData().getFeeds().get(position).getImages().get(0).getUrl()).into(holder.findThreeMoreImagesOneImg);
                     Glide.with(mContext).load(mFindTodayBean.getData().getFeeds().get(position).getImages().get(1).getUrl()).into(holder.findThreeMoreImagesTwoImg);
-//                    if (mFindTodayBean.getData().getFeeds().get(position).getImages().get(2).getUrl() != null){
-//
-//                        Glide.with(mContext).load(mFindTodayBean.getData().getFeeds().get(position).getImages().get(2).getUrl()).into(holder.findThreeMoreImagesThreeImg);
-//                    }else {
-//                        holder.findThreeMoreImagesThreeImg.setImageResource(R.mipmap.icon);
-//                    }
+                    if (mFindTodayBean.getData().getFeeds().get(position).getImages() != null){
+                        Glide.with(mContext).load(mFindTodayBean.getData().getFeeds().get(position).getImages().get(2).getUrl()).into(holder.findThreeMoreImagesThreeImg);
+                    }else {
+                        holder.findThreeMoreImagesThreeImg.setImageResource(R.mipmap.icon);
+                    }
 
                     final int detailPos = position;
                     holder.findThreeMoreItemRl.setOnClickListener(new View.OnClickListener() {
