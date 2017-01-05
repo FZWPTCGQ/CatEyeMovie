@@ -29,7 +29,11 @@ android {
         }
     }
 }
-
+repositories {
+    flatDir {
+        dirs 'libs' //就是你放aar的目录地址
+    }
+}
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -37,10 +41,18 @@ dependencies {
     })
     //友好的tabLayout
     compile files('libs/lite-orm-1.9.2.jar')
-    compile 'com.google.code.gson:gson:2.2.4'
+    /**
+     *  扫一扫功能
+     */
+    //第三方登录
+    compile files('libs/rxandroid-1.2.0.jar')
+    compile name: 'SMSSDK-2.1.3', ext: 'aar'
+    compile name: 'SMSSDKGUI-2.1.3', ext: 'aar'
+    compile files('libs/BmobSDK_3.5.2_20161027.jar')
+    compile files('libs/rxjava-1.1.6.jar')
+    compile 'eu.the4thfloor.volley:com.android.volley:2015.05.28'
     compile 'eu.the4thfloor.volley:com.android.volley:2015.05.28'
     compile 'com.google.code.gson:gson:2.2.4'
-    compile 'eu.the4thfloor.volley:com.android.volley:2015.05.28'
     compile 'com.android.support:appcompat-v7:25.0.1'
     compile 'com.android.support:support-v4:25.0.1'
     compile 'com.nineoldandroids:library:2.4.0'
@@ -55,13 +67,10 @@ dependencies {
     compile 'se.emilsjolander:stickylistheaders:2.7.0'
     compile 'com.android.support:design:25.0.1'
     compile 'com.android.support:recyclerview-v7:25.0.1'
-    testCompile 'junit:junit:4.12'
-    /**
-     * 扫一扫功能
-     */
     compile 'cn.yipianfengye.android:zxing-library:2.1'
     compile 'pub.devrel:easypermissions:0.2.0'
     compile 'com.github.clans:fab:1.6.4'
+    testCompile 'junit:junit:4.12'
     // 播放
     compile 'fm.jiecao:jiecaovideoplayer:5.2.1'
 

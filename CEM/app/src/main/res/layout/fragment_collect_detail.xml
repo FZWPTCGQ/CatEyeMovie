@@ -1,0 +1,45 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+              android:orientation="vertical"
+             tools:context="com.example.qianggedemac.cem.mine.CollectDetailFragment">
+
+
+    <RelativeLayout
+        android:background="#d02d2b"
+        android:layout_width="match_parent"
+        android:layout_height="55dp">
+        <ImageView
+            android:id="@+id/collect_back_img"
+            android:layout_marginLeft="15dp"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:textSize="20sp"
+            android:background="#F2F2F2"
+            android:layout_marginLeft="15dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/collect_back_img"
+            android:layout_width="2dp"
+            android:layout_height="23dp"/>
+
+        <TextView
+            android:textColor="#fff"
+            android:text="@string/collection"
+            android:textSize="18sp"
+            android:layout_toRightOf="@id/collect_back_img"
+            android:layout_marginLeft="30dp"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:background="#e1d6d6"
+        android:id="@+id/collect_body_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>
