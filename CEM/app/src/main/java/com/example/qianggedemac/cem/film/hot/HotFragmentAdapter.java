@@ -127,10 +127,6 @@ public class HotFragmentAdapter extends BaseAdapter {
                     vhOne.gPTv.setText("预售");
                 }
                 vhOne.nmTvOne.setText(mHotFragmentListViewBean.getData().getHot().get(i).getNm());
-<<<<<<< HEAD
-=======
-
->>>>>>> 1d0a78142c0f0036a8fccf395d8c081dee94a663
                 /**
                  * 点击事件
                  */

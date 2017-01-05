@@ -315,12 +315,10 @@ public class FindFragment extends BaseFragment implements View.OnClickListener, 
                                     Intent intent = new Intent(MyApp.getContext(), SearchDetailActivity.class);
                                     String newUrl = UrlTools.SEARCH_KEY_BEFORE + content + UrlTools.SEARCH_KEY_AFTER;
 
-<<<<<<< HEAD
-=======
+
                                     intent.putExtra("url",newUrl);
                                     intent.putExtra("content",content);
 
->>>>>>> 1d0a78142c0f0036a8fccf395d8c081dee94a663
                                     startActivity(intent);
                                 }
 

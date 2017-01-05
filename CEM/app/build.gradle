@@ -70,11 +70,8 @@ dependencies {
     compile 'cn.yipianfengye.android:zxing-library:2.1'
     compile 'pub.devrel:easypermissions:0.2.0'
     compile 'com.github.clans:fab:1.6.4'
-<<<<<<< HEAD
     testCompile 'junit:junit:4.12'
-=======
     // 播放
     compile 'fm.jiecao:jiecaovideoplayer:5.2.1'
 
->>>>>>> 1d0a78142c0f0036a8fccf395d8c081dee94a663
 }
