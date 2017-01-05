@@ -39,6 +39,7 @@ import cn.bmob.v3.listener.QueryListener;
  */
 public class MineFragment extends BaseFragment implements View.OnClickListener {
     private LinearLayout vipLinearLayout;
+<<<<<<< HEAD
     private LinearLayout mLinearLayoutCollection;
     private CollectDetailFragment mCollectDetailFragment;
     private TextView mTextViewLogin;
@@ -49,6 +50,9 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
     private LinearLayout mLoginLl;
     private LoginSuccessBroadcastReceiver mReceiver;
     private LinearLayout mMember;
+=======
+  
+>>>>>>> 1d0a78142c0f0036a8fccf395d8c081dee94a663
 
 
     @Override
@@ -59,12 +63,16 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
     @Override
     protected void initView(View view) {
         vipLinearLayout = (LinearLayout) view.findViewById(R.id.main_my_accomplishments);
+<<<<<<< HEAD
         mLinearLayoutCollection = (LinearLayout) view.findViewById(R.id.main_my_collection);
         mTextViewLogin = (TextView) view.findViewById(R.id.main_Sign_in);
         mQuitBtn = (Button)view.findViewById(R.id.fragment_mine_quit_btn);
         mIconTv = (ImageView)view.findViewById(R.id.main_head_portrait);
         mLoginLl = (LinearLayout)view.findViewById(R.id.fragment_mine_login_ll);
         mMember = (LinearLayout) view.findViewById(R.id.mine_member_conter);
+=======
+
+>>>>>>> 1d0a78142c0f0036a8fccf395d8c081dee94a663
     }
 
     @Override
@@ -100,9 +108,9 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, QrCodeActivity.class);
                 startActivity(intent);
-
             }
         });
+<<<<<<< HEAD
         mMember.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -152,6 +160,9 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
     public void onDetach() {
         super.onDetach();
         mContext.unregisterReceiver(mReceiver);
+=======
+
+>>>>>>> 1d0a78142c0f0036a8fccf395d8c081dee94a663
     }
 
     public class LoginSuccessBroadcastReceiver extends BroadcastReceiver{

@@ -135,10 +135,14 @@ public class FindDetailActivity extends BaseActivity {
         });
 
         mWebView.loadUrl(wvUrl);
+<<<<<<< HEAD
         Log.d("FindDetailActivity", wvUrl);
         /**
          * 将webView的标头去掉
          */
+=======
+
+>>>>>>> 1d0a78142c0f0036a8fccf395d8c081dee94a663
         mWebView.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageFinished(WebView view, String url) {
