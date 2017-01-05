@@ -127,13 +127,6 @@ public class HotFragmentAdapter extends BaseAdapter {
                     vhOne.gPTv.setText("预售");
                 }
                 vhOne.nmTvOne.setText(mHotFragmentListViewBean.getData().getHot().get(i).getNm());
-<<<<<<< HEAD
-              //  vhOne.titleOneTv.setText(mHotFragmentListViewBean.getData().getHot().get(0).getNewsHeadlines().get(0).getTitle());
-              //  vhOne.titleTwoTv.setText(mHotFragmentListViewBean.getData().getHot().get(0).getNewsHeadlines().get(1).getTitle());
-=======
-          //      vhOne.titleOneTv.setText(mHotFragmentListViewBean.getData().getHot().get(0).getNewsHeadlines().get(0).getTitle());
-          //      vhOne.titleTwoTv.setText(mHotFragmentListViewBean.getData().getHot().get(0).getNewsHeadlines().get(1).getTitle());
->>>>>>> fb174407109709617b7229bb7d36e3a05f00a25a
                 /**
                  * 点击事件
                  */

@@ -18,12 +18,18 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.qianggedemac.cem.R;
 import com.example.qianggedemac.cem.baseclass.BaseActivity;
+import com.example.qianggedemac.cem.film.findfilm.ClassifyBean;
+import com.example.qianggedemac.cem.tool.CollectionDBTool;
+import com.example.qianggedemac.cem.tool.LiteOrmInstance;
 import com.example.qianggedemac.cem.tool.UrlTools;
 
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.List;
 
 public class FindDetailActivity extends BaseActivity {
 
@@ -33,14 +39,21 @@ public class FindDetailActivity extends BaseActivity {
     private FindDetailBR mFindDetailBR;
 
     private String mTitle;
+
+
+
+    private String nickName;
+    private String urlImg;
     private int mFeedType;
     private int mTargetId;
-
     private String name;
+
+
     private String wvUrl;
 
     private ImageView mReturnIv;
-
+    private ImageView mCollectionIv;
+    private boolean isCollected = false;
     @Override
     protected int setLayout() {
         return R.layout.activity_find_detail;
@@ -48,16 +61,19 @@ public class FindDetailActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
+       //  CollectionDBTool.getInstance().queryByValuesCollectBean(CollectionBean.class,"title",);
 //        mToolbar = (Toolbar) findViewById(R.id.toolbar_behavior);
 //        mToolbar.getBackground().setAlpha(0);//toolbar透明度初始化为0
         mWebView = (WebView) findViewById(R.id.find_detail_wv);
         mTextView = (TextView) findViewById(R.id.return_tv);
         mReturnIv = (ImageView) findViewById(R.id.return_iv);
+        mCollectionIv = (ImageView)findViewById(R.id.collect_iv);
         Intent intent = getIntent();
         mTargetId = intent.getIntExtra("targetID", -1);
         mFeedType = intent.getIntExtra("feedType", -1);
-        name = intent.getStringExtra("name");
-
+        name = intent.getStringExtra("Title");
+        nickName = intent.getStringExtra("nickName");
+        urlImg = intent.getStringExtra("urlImg");
 
         if (mFeedType == 7) {
             wvUrl = UrlTools.FIND_TODAY_DETAIL + mTargetId + "?_v_=yes";
@@ -82,6 +98,19 @@ public class FindDetailActivity extends BaseActivity {
             }
 
         }
+        /**
+         * 判断数据库中是否有该条数据
+         */
+        CollectionDBTool.getInstance().queryByValuesCollectBean(CollectionBean.class, "title", new String[]{name}, new CollectionDBTool.OnQueryListener() {
+            @Override
+            public void onQuery(List<CollectionBean> collectionBeen) {
+                if (collectionBeen.size() > 0){
+                    mCollectionIv.setImageResource(R.mipmap.xingxing_select);
+                }else{
+                    mCollectionIv.setImageResource(R.mipmap.xingxing);
+                }
+            }
+        });
 
         mFindDetailBR = new FindDetailBR();
         IntentFilter intentFilter = new IntentFilter();
@@ -107,7 +136,9 @@ public class FindDetailActivity extends BaseActivity {
 
         mWebView.loadUrl(wvUrl);
         Log.d("FindDetailActivity", wvUrl);
-
+        /**
+         * 将webView的标头去掉
+         */
         mWebView.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageFinished(WebView view, String url) {
@@ -177,6 +208,31 @@ public class FindDetailActivity extends BaseActivity {
 //     mToolbar.setTitle("标题");
 //
 //    mToolbar.setSubtitle("子标题");
+
+        mCollectionIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+             if (!isCollected){
+                 /**
+                  * 获取当前系统的时间
+                  */
+                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy--MM--dd hh:mm:ss");
+                 String data = simpleDateFormat.format(new java.util.Date());
+                 String data1 = data.substring(6,12);
+                 CollectionBean collectionBean = new CollectionBean(nickName,data1,urlImg,name,mTargetId,mFeedType);
+                 CollectionDBTool.getInstance().insertCollectBean(collectionBean);
+                 mCollectionIv.setImageResource(R.mipmap.xingxing_select);
+                 isCollected = !isCollected;
+                // Toast.makeText(FindDetailActivity.this, "收藏成功", Toast.LENGTH_SHORT).show();
+             }else{
+                 CollectionDBTool.getInstance().deleteValueBean(CollectionBean.class,"title",new String[]{name});
+                 mCollectionIv.setImageResource(R.mipmap.xingxing);
+                 isCollected = !isCollected;
+               //  Toast.makeText(FindDetailActivity.this, "取消收藏", Toast.LENGTH_SHORT).show();
+             }
+
+            }
+        });
 
     }
 
