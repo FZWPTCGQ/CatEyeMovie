@@ -17,8 +17,6 @@ import com.example.qianggedemac.cem.baseclass.BaseFragment;
  */
 public class MineFragment extends BaseFragment {
     private LinearLayout vipLinearLayout;
-  
-
 
     @Override
     protected int setLayout() {
