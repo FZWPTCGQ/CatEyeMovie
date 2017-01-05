@@ -17,6 +17,7 @@ import com.example.qianggedemac.cem.baseclass.BaseFragment;
  */
 public class MineFragment extends BaseFragment {
     private LinearLayout vipLinearLayout;
+  
 
 
     @Override
@@ -27,6 +28,7 @@ public class MineFragment extends BaseFragment {
     @Override
     protected void initView(View view) {
         vipLinearLayout = (LinearLayout) view.findViewById(R.id.main_my_accomplishments);
+
     }
 
     @Override
@@ -36,9 +38,9 @@ public class MineFragment extends BaseFragment {
             public void onClick(View v) {
                 Intent intent = new Intent(mContext,QrCodeActivity.class);
                 startActivity(intent);
-
             }
         });
+
     }
 
 }

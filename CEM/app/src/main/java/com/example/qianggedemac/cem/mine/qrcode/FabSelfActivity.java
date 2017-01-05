@@ -2,9 +2,11 @@ package com.example.qianggedemac.cem.mine.qrcode;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.TransitionDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.qianggedemac.cem.R;
@@ -28,14 +30,19 @@ public class FabSelfActivity extends BaseActivity {
     @Override
     protected void initViews() {
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.linear1);
+        final ImageView switchIv = (ImageView) findViewById(R.id.light);
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!isOpen) {
                     CodeUtils.isLightEnable(true);
+                    switchIv.setImageResource(R.drawable.trans_on);
+                    ((TransitionDrawable) switchIv.getDrawable()).startTransition(2000);
                     isOpen = true;
                 } else {
                     CodeUtils.isLightEnable(false);
+                    switchIv.setImageResource(R.drawable.trans_off);
+                    ((TransitionDrawable) switchIv.getDrawable()).startTransition(2000);
                     isOpen = false;
                 }
 

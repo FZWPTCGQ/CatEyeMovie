@@ -62,5 +62,7 @@ dependencies {
     compile 'cn.yipianfengye.android:zxing-library:2.1'
     compile 'pub.devrel:easypermissions:0.2.0'
     compile 'com.github.clans:fab:1.6.4'
+    // 播放
+    compile 'fm.jiecao:jiecaovideoplayer:5.2.1'
 
 }

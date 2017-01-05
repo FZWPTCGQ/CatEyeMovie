@@ -106,7 +106,6 @@ public class FindDetailActivity extends BaseActivity {
         });
 
         mWebView.loadUrl(wvUrl);
-        Log.d("FindDetailActivity", wvUrl);
 
         mWebView.setWebViewClient(new WebViewClient() {
             @Override

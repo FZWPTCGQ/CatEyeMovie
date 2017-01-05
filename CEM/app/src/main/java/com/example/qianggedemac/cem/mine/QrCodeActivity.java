@@ -3,6 +3,7 @@ package com.example.qianggedemac.cem.mine;
 import android.Manifest;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -26,6 +27,7 @@ import com.example.qianggedemac.cem.mine.qrcode.FabPicActivity;
 import com.example.qianggedemac.cem.mine.qrcode.FabSelfActivity;
 import com.example.qianggedemac.cem.mine.qrcode.ImageUtil;
 import com.example.qianggedemac.cem.tool.GestureHelper;
+import com.example.qianggedemac.cem.view.CanvasView;
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
 import com.google.zxing.BarcodeFormat;
@@ -88,6 +90,10 @@ public class QrCodeActivity extends BaseActivity {
     private FloatingActionButton fabCreate;
 
 
+    private CanvasView mCanvasView;
+    private Canvas canvas;
+    private Bitmap mBackgroundBitmap;
+
     @Override
     protected int setLayout() {
         ZXingLibrary.initDisplayOpinion(this);
@@ -107,10 +113,17 @@ public class QrCodeActivity extends BaseActivity {
         fabSelf.setOnClickListener(new ButtonOnClickListener(fabSelf.getId()));
         fabCreate.setOnClickListener(new ButtonOnClickListener(fabCreate.getId()));
 
-
+        mCanvasView = (CanvasView) findViewById(R.id.canvas);
 //        CameraManager.init(getApplication());
 
         inactivityTimer = new InactivityTimer(this);
+
+        if (mBackgroundBitmap == null) {
+            mBackgroundBitmap = Bitmap.createBitmap(800, 1000, Bitmap.Config.RGB_565);
+            canvas = new Canvas(mBackgroundBitmap);
+        }
+
+        mCanvasView.draw(canvas);
 
     }
 
@@ -133,6 +146,7 @@ public class QrCodeActivity extends BaseActivity {
         });
 
     }
+
     // 手势的触摸事件
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -186,6 +200,7 @@ public class QrCodeActivity extends BaseActivity {
             Toast.makeText(this, "从设置页面返回...", Toast.LENGTH_SHORT)
                     .show();
         }
+
     }
 
 
@@ -278,6 +293,7 @@ public class QrCodeActivity extends BaseActivity {
         super.onResume();
 //        QrCodeActivity.this.finish();
     }
+
     @Override
     protected void onPause() {
         super.onPause();
@@ -287,10 +303,17 @@ public class QrCodeActivity extends BaseActivity {
 //        }
 //        CameraManager.get().closeDriver();
     }
+
     @Override
     protected void onDestroy() {
         inactivityTimer.shutdown();
         super.onDestroy();
     }
+
+
+    public void clearCanvas(View view) {
+        mCanvasView.clearCanvas();
+    }
+
 }
 

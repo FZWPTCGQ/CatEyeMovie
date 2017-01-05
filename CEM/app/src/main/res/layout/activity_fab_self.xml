@@ -34,7 +34,7 @@
                 android:id="@+id/light"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@mipmap/ic_launcher"
+                android:src="@drawable/trans_on"
                 />
 
             <TextView
