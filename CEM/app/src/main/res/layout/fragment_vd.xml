@@ -1,0 +1,50 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#f9f9f9"
+              android:orientation="vertical"
+              tools:context="com.example.qianggedemac.cem.mine.videodetail.VDFragment">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/sixty"
+        android:background="@color/bigRed"
+        android:gravity="center_vertical"
+    >
+        <ImageView
+            android:id="@+id/vdfragment_back_iv"
+            android:layout_width="@dimen/twentyfive"
+            android:layout_height="@dimen/twentyfive"
+            android:layout_marginLeft="@dimen/twenty"
+
+            android:src="@mipmap/back"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f2f2f2"
+        android:padding="10dp"
+        android:text="预告片推荐"/>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/fragment_movie_wait_vp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/sizeTen"
+        android:layout_weight="5"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/sizeTen"
+        android:background="#f2f2f2"
+        android:padding="@dimen/sizeTen"
+        android:text="近期最受期待"
+    />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/fragment_movie_wait_wish_rv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/five"
+        android:layout_weight="4"/>
+</LinearLayout>

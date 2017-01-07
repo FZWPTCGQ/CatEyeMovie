@@ -40,10 +40,9 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     public void jumpFragment(Fragment fragment){
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.activity_main,fragment);
+        fragmentTransaction.replace(R.id.activity_main,fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
-
     }
 
 

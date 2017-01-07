@@ -6,11 +6,11 @@
     android:layout_height="@dimen/fifty"
     android:background="@color/red"
     tools:showIn="@layout/fragment_hot_header_view">
-    <android.support.v4.view.ViewPager
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <!--<android.support.v4.view.ViewPager-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
 
-    </android.support.v4.view.ViewPager>
+    <!--</android.support.v4.view.ViewPager>-->
 
     <RelativeLayout
         android:layout_width="match_parent"

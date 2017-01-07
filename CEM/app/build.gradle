@@ -50,6 +50,9 @@ dependencies {
     compile name: 'SMSSDKGUI-2.1.3', ext: 'aar'
     compile files('libs/BmobSDK_3.5.2_20161027.jar')
     compile files('libs/rxjava-1.1.6.jar')
+    // 播放
+
+
     compile 'eu.the4thfloor.volley:com.android.volley:2015.05.28'
     compile 'eu.the4thfloor.volley:com.android.volley:2015.05.28'
     compile 'com.google.code.gson:gson:2.2.4'
@@ -70,8 +73,6 @@ dependencies {
     compile 'cn.yipianfengye.android:zxing-library:2.1'
     compile 'pub.devrel:easypermissions:0.2.0'
     compile 'com.github.clans:fab:1.6.4'
-    testCompile 'junit:junit:4.12'
-    // 播放
     compile 'fm.jiecao:jiecaovideoplayer:5.2.1'
-
+    testCompile 'junit:junit:4.12'
 }

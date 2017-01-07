@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/fragment_movie_wait_wish_ll"
+              android:layout_width="100dp"
+              android:layout_height="match_parent"
+              android:gravity="center"
+              android:orientation="vertical"
+              android:paddingLeft="5dp"
+              android:paddingTop="5dp">
+    <TextView
+        android:id="@+id/fragment_movie_wait_wish_date_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"/>
+    <ImageView
+        android:id="@+id/fragment_movie_wait_wish_iv"
+        android:layout_width="75dp"
+        android:layout_height="100dp"/>
+    <TextView
+        android:id="@+id/fragment_movie_wait_wish_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="13sp"/>
+    <TextView
+        android:id="@+id/fragment_movie_wait_wish_count_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"/>
+
+</LinearLayout>

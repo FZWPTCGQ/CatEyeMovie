@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#cccccc"
+        android:gravity="center_vertical"
+        android:text="定位城市"
+        android:textSize="14sp"/>
+    <TextView
+        android:id="@+id/postion_city_tv"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="10dp"
+        android:gravity="center_vertical"
+        android:clickable="true"
+        android:text="点击定位"
+        android:textSize="18sp"/>
+
+
+</LinearLayout>

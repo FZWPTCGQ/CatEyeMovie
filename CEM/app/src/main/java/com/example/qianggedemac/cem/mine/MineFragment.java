@@ -27,6 +27,7 @@ import com.example.qianggedemac.cem.mine.login.LoginModel;
 import com.example.qianggedemac.cem.mine.login.LoginPresenter;
 import com.example.qianggedemac.cem.mine.login.LoginTool;
 import com.example.qianggedemac.cem.mine.login.MyUser;
+import com.example.qianggedemac.cem.mine.videodetail.VDFragment;
 
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobQuery;
@@ -49,6 +50,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
     private LinearLayout mLoginLl;
     private LoginSuccessBroadcastReceiver mReceiver;
     private LinearLayout mMember;
+    private LinearLayout mLinearLayoutVideoDetail;
 
 
     @Override
@@ -65,6 +67,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         mIconTv = (ImageView)view.findViewById(R.id.main_head_portrait);
         mLoginLl = (LinearLayout)view.findViewById(R.id.fragment_mine_login_ll);
         mMember = (LinearLayout) view.findViewById(R.id.mine_member_conter);
+        mLinearLayoutVideoDetail = (LinearLayout)view.findViewById(R.id.main_my_consumption);
 
     }
 
@@ -113,6 +116,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         mLinearLayoutCollection.setOnClickListener(this);
         mTextViewLogin.setOnClickListener(this);
         mQuitBtn.setOnClickListener(this);
+        mLinearLayoutVideoDetail.setOnClickListener(this);
 
     }
 
@@ -144,6 +148,10 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
                 mTextViewLogin.setText("登录");
                 mIconTv.setImageResource(R.mipmap.acm);
                 mQuitBtn.setVisibility(View.GONE);
+                break;
+            case R.id.main_my_consumption:
+                VDFragment vdFragment = new VDFragment();
+                mMainActivity.jumpFragment(vdFragment);
                 break;
         }
     }

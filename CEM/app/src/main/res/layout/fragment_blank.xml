@@ -1,0 +1,53 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:paddingLeft="10dp"
+              android:background="#ffffff"
+             tools:context="com.example.qianggedemac.cem.film.city.CityFragment">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:hint="输入城市中文名或详情"
+    />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="15">
+            <TextView
+                android:id="@+id/bubble"
+                android:layout_width="35dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:background="@mipmap/pao"
+                android:gravity="center"
+                android:hint="K"
+                android:textColor="#fff"
+                android:textSize="12sp"
+                android:visibility="invisible"
+            />
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"/>
+        </RelativeLayout>
+        <com.example.qianggedemac.cem.film.city.SideBar
+            android:id="@+id/sidebar"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+        />
+
+    </LinearLayout>
+
+</LinearLayout>
