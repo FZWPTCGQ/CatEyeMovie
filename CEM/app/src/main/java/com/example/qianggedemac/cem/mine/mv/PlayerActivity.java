@@ -1,10 +1,13 @@
 package com.example.qianggedemac.cem.mine.mv;
 
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -28,7 +31,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
+import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerManager;
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
+
+import static fm.jiecao.jcvideoplayer_lib.JCVideoPlayer.SCREEN_WINDOW_FULLSCREEN;
 
 // yuandan
 public class PlayerActivity extends BaseActivity {
@@ -44,6 +50,10 @@ public class PlayerActivity extends BaseActivity {
     private List<PlayerBean> datas;
     private RequestQueue mRequestQueue;
     private int mPos;
+    String title;
+
+//    SensorManager sensorManager;
+//    JCVideoPlayer.JCAutoFullscreenListener sensorEventListener;
 
     @Override
     protected int setLayout() {
@@ -59,8 +69,7 @@ public class PlayerActivity extends BaseActivity {
         relativeMv = (ImageView) findViewById(R.id.relative_mv);
         Intent intent = getIntent();
         id = intent.getIntExtra("id", -10);
-
-
+        title = intent.getStringExtra("title");
         post = intent.getStringExtra("post");
         mvDescribe.setOnClickListener(imageClickListener);
         mvComment.setOnClickListener(imageClickListener);
@@ -110,7 +119,10 @@ public class PlayerActivity extends BaseActivity {
                 mVideoPlayer.setUp(bean.getVideos().get(0).getUrl(), JCVideoPlayerStandard.SCREEN_LAYOUT_LIST, mPlayerBean.getVideos().get(0).getTitle());
 //                mVideoPlayer.startButton.performClick();
                 Glide.with(PlayerActivity.this).load(post).into(mVideoPlayer.thumbImageView);
+//                JCVideoPlayerStandard.startFullscreen(PlayerActivity.this, JCVideoPlayerStandard.class,bean.getVideos().get(0).getUrl(),title);
 
+//                sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+//                sensorEventListener = new JCVideoPlayer.JCAutoFullscreenListener();
             }
 
             @Override
@@ -121,9 +133,27 @@ public class PlayerActivity extends BaseActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+//        Sensor accelerometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+//        sensorManager.registerListener(sensorEventListener, accelerometerSensor, SensorManager.SENSOR_DELAY_NORMAL);
+    }
+
+    @Override
     protected void onPause() {
         JCVideoPlayer.releaseAllVideos();
+//        sensorManager.unregisterListener(sensorEventListener);
         super.onPause();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private PlayVideoListener playVideoListener = new PlayVideoListener() {

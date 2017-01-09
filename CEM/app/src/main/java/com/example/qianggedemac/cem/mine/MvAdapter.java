@@ -117,6 +117,7 @@ public class MvAdapter extends RecyclerView.Adapter<MvAdapter.MVViewHolder>{
                        intent.setClass(mContext, YueDanDetailActivity.class);
                         intent.putExtra("id",mvBean.getId());
                         intent.putExtra("url",mvBean.getUrl());
+                        intent.putExtra("title",mvBean.getTitle());
                         intent.putExtra("post",mvBean.getPosterPic());
                         break;
                     case 2:
@@ -125,6 +126,7 @@ public class MvAdapter extends RecyclerView.Adapter<MvAdapter.MVViewHolder>{
                         intent.setClass(mContext, PlayerActivity.class);
                         intent.putExtra("id",mvBean.getId());
                         intent.putExtra("pos",position);
+                        intent.putExtra("title",mvBean.getTitle());
                         intent.putExtra("post",mvBean.getPosterPic());
 //
                         break;

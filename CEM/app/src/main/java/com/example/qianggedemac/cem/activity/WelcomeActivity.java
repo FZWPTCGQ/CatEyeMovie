@@ -7,6 +7,8 @@ import android.os.AsyncTask;
 import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -35,6 +37,7 @@ public class WelcomeActivity extends BaseActivity implements View.OnClickListene
     private String path;
     private WelcomeBean mWelcomeBean;
     private CountDownTimer mCountDownTimer;
+    private Animation mAnimation;
 
     @Override
     protected int setLayout() {
@@ -87,6 +90,29 @@ public class WelcomeActivity extends BaseActivity implements View.OnClickListene
         };
         mCountDownTimer.start();
         mButton.setOnClickListener(this);
+        mAnimation = AnimationUtils.loadAnimation(WelcomeActivity.this, R.anim.scale_to_normal);
+
+        mAnimation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
+                mCountDownTimer.cancel();
+                finish();
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
     }
 
     @Override
@@ -120,6 +146,7 @@ public class WelcomeActivity extends BaseActivity implements View.OnClickListene
            super.onPostExecute(bitmap);
            if (mBitmap != null){
                mImageView.setImageBitmap(mBitmap);
+               mImageView.startAnimation(mAnimation);// 执行动画
            }
        }
    }

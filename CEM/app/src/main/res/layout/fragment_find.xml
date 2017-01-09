@@ -18,34 +18,38 @@
             android:id="@+id/loading_img"
             android:layout_width="50dp"
             android:layout_height="50dp"
-
             android:layout_gravity="center_horizontal"
             android:src="@mipmap/loading_before"
-            android:visibility="gone"/>
+            android:visibility="gone"
+            />
 
         <ImageView
             android:id="@+id/loading_before"
-            android:layout_width="46dp"
-            android:layout_height="46dp"
-
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_gravity="center_horizontal"
+            android:layout_marginTop="1dp"
             android:src="@mipmap/loading_background"
-            android:visibility="gone"/>
+            android:visibility="gone"
+            />
     </FrameLayout>
 
     <FrameLayout
-        android:layout_below="@id/find_search_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@id/find_search_layout">
+
         <com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView
             android:id="@+id/find_pull_rv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="visible"/>
-       <include layout="@layout/invisible_search"
-                android:visibility="gone"
 
-       />
+        <include
+            layout="@layout/invisible_search"
+            android:visibility="gone"
+
+            />
     </FrameLayout>
 
 
