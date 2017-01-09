@@ -40,6 +40,7 @@ import cn.bmob.v3.listener.QueryListener;
  */
 public class MineFragment extends BaseFragment implements View.OnClickListener {
     private LinearLayout vipLinearLayout;
+
     private LinearLayout mLinearLayoutCollection;
     private CollectDetailFragment mCollectDetailFragment;
     private TextView mTextViewLogin;
@@ -51,7 +52,6 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
     private LoginSuccessBroadcastReceiver mReceiver;
     private LinearLayout mMember;
     private LinearLayout mLinearLayoutVideoDetail;
-
 
     @Override
     protected int setLayout() {
